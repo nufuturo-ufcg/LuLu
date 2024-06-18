@@ -516,7 +516,7 @@ bail:
     NWHostEndpoint* remoteEndpoint = nil;
     
     //dbg msg
-    os_log_debug(logHandle, "FLOW_ID=%{public}@ looking for rule for %{public}@ -> %{public}@", flowUUID, process.key, process.path);
+    os_log_info(logHandle, "FLOW_ID=%{public}@ looking for rule for %{public}@ -> %{public}@", flowUUID, process.key, process.path);
     
     //sync to access
     @synchronized(self.rules)
@@ -626,7 +626,7 @@ bail:
                     (YES == [rule.endpointPort isEqualToString:VALUE_ANY]) )
                 {
                     //dbg msg
-                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'any'", flowUUID, rule.uuid);
+                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'any'", flowUUID, rule.uuid);
                     
                     //any
                     anyMatch = rule;
@@ -640,13 +640,13 @@ bail:
                 else if(YES == [rule.endpointPort isEqualToString:VALUE_ANY])
                 {
                     //dbg msg
-                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule port is any ('*'), will check host/url", flowUUID, rule.uuid);
+                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule port is any ('*'), will check host/url", flowUUID, rule.uuid);
                     
                     //check endpoint host/url
                     if(YES == [self endpointAddrMatch:flow rule:rule])
                     {
                         //dbg msg
-                        os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'partial' (endpoint addr)", flowUUID, rule.uuid);
+                        os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'partial' (endpoint addr)", flowUUID, rule.uuid);
                         
                         //partial
                         partialMatch = rule;
@@ -661,14 +661,14 @@ bail:
                 else if(YES == [rule.endpointAddr isEqualToString:VALUE_ANY])
                 {
                     //dbg msg
-                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule address is any ('*'), will check port", flowUUID, rule.uuid);
+                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule address is any ('*'), will check port", flowUUID, rule.uuid);
                     
                     //addr is any
                     //so check the port
                     if(YES == [rule.endpointPort isEqualToString:remoteEndpoint.port])
                     {
                         //dbg msg
-                        os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'partial' (endpoint port)", flowUUID, rule.uuid);
+                        os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'partial' (endpoint port)", flowUUID, rule.uuid);
                         
                         //partial
                         partialMatch = rule;
@@ -683,14 +683,14 @@ bail:
                 else
                 {
                     //dbg msg
-                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ address and port set, will check both for match", flowUUID, rule.uuid);
+                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ address and port set, will check both for match", flowUUID, rule.uuid);
                     
                     //port match?
                     if( (YES == [self endpointAddrMatch:flow rule:rule]) &&
                         (YES == [rule.endpointPort isEqualToString:remoteEndpoint.port]) )
                     {
                         //dbg msg
-                            os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'exact'", flowUUID, rule.uuid);
+                            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'exact'", flowUUID, rule.uuid);
                             
                             //exact
                             extactMatch = rule;
