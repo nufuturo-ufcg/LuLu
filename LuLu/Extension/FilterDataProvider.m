@@ -401,7 +401,7 @@ bail:
     }
     
     //dbg msg
-    os_log_info(logHandle, "FLOW_ID=%{public}@client not in passive mode", flowUUID);
+    os_log_info(logHandle, "FLOW_ID=%{public}@ client not in passive mode", flowUUID);
     
     //CHECK:
     // there a related alert shown (i.e. for same process)
@@ -446,14 +446,14 @@ bail:
             if(YES != [self.grayList isGrayListed:process])
             {
                 
+                //init for (rule) info
+                // type: apple, action: allow
+                info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_APPLE} mutableCopy];
+                
                 Rule *newRule = [[Rule alloc] init:info];
                 
                 //dbg msg
                 os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ due to preferences, allowing (non-graylisted) apple process %d/%{public}@", flowUUID, newRule.uuid, process.pid, process.path);
-                
-                //init for (rule) info
-                // type: apple, action: allow
-                info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_APPLE} mutableCopy];
                 
                 //add process cs info
                 if(nil != process.csInfo)
@@ -534,14 +534,13 @@ bail:
             (NSOrderedAscending == [date compare:installDate]) )
         {
             
+            //init info for rule creation
+            info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_BASELINE} mutableCopy];
+            
             Rule *newRule = [[Rule alloc] init:info];
 
             //dbg msg
             os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ 3rd-party item was installed prior, allowing & adding rule", flowUUID, newRule.uuid);
-            
-            //init info for rule creation
-            info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_BASELINE} mutableCopy];
-            
             //add process cs info
             if(nil != process.csInfo) info[KEY_CS_INFO] = process.csInfo;
             
@@ -611,14 +610,14 @@ bail:
         (nil == alerts.xpcUserClient) )
     {
         
+        //init info for rule creation
+        info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_UNCLASSIFIED} mutableCopy];
+
         Rule *newRule = [[Rule alloc] init:info];
 
         //dbg msg
         os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ no active user or no connect client, will allow (and create rule)...", flowUUID, newRule.uuid);
         
-        //init info for rule creation
-        info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_UNCLASSIFIED} mutableCopy];
-
         //add process cs info?
         if(nil != process.csInfo) info[KEY_CS_INFO] = process.csInfo;
         
@@ -671,7 +670,7 @@ bail:
     alert[KEY_CS_CHANGE] = [NSNumber numberWithBool:csChange];
     
     //dbg msg
-    os_log_info(logHandle, "created alert...");
+    os_log_info(logHandle, "FLOW_ID=%{public}@ created alert...", flowUUID);
 
     //deliver alert
     // and process user response
