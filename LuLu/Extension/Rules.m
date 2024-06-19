@@ -390,7 +390,7 @@ bail:
     BOOL added = NO;
     
     //dbg msg
-    os_log_debug(logHandle, "RULE_ID=%{public}@ adding rule: %{public}@ -> %{public}@", rule.uuid, rule.key, rule);
+    os_log_info(logHandle, "RULE_ID=%{public}@ adding rule: %{public}@ -> %{public}@", rule.uuid, rule.key, rule);
 
     //sanity check
     if(nil == rule)
@@ -442,7 +442,7 @@ bail:
         }
         
         //dbg msg
-        os_log_debug(logHandle, "RULE_id=%{public}@ saved rule to disk", rule.uuid);
+        os_log_info(logHandle, "RULE_ID=%{public}@ saved rule to disk", rule.uuid);
     }
     
     //happy
@@ -775,14 +775,14 @@ bail:
     }
     
     //dbg msg
-    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ checking %{public}@ against %{public}@ and just %{public}@", flowUUID, rule.uuid, rule.endpointAddr, endpointNames, rule.endpointHost);
+    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ checking %{public}@ against %{public}@ and just %{public}@", flowUUID, rule.uuid, rule.endpointAddr, endpointNames, rule.endpointHost);
     
     //endpoint addr a regex?
     // init regex and check for match
     if(YES == rule.isEndpointAddrRegex)
     {
         //dbg msg
-        os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule's endpoint address is a regex...", flowUUID, rule.uuid);
+        os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule's endpoint address is a regex...", flowUUID, rule.uuid);
         
         //init regex
         endpointAddrRegex = [NSRegularExpression regularExpressionWithPattern:rule.endpointAddr options:0 error:&error];
@@ -802,7 +802,7 @@ bail:
             if(0 != [endpointAddrRegex numberOfMatchesInString:endpointName options:0 range:NSMakeRange(0, endpointName.length)])
             {
                 //dbg msg
-                os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: regex on %{public}@", flowUUID, rule.uuid, endpointName);
+                os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: regex on %{public}@", flowUUID, rule.uuid, endpointName);
                 
                 //match
                 isMatch = YES;
@@ -829,7 +829,7 @@ bail:
             NSString* host = nil;
             
             //dbg msg
-            os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ checking %{public}@ vs. %{public}@", flowUUID, rule.uuid, endpointName, rule.endpointAddr);
+            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ checking %{public}@ vs. %{public}@", flowUUID, rule.uuid, endpointName, rule.endpointAddr);
             
             //init url
             // add prefix
@@ -849,7 +849,7 @@ bail:
             if(NSOrderedSame == [rule.endpointAddr caseInsensitiveCompare:endpointName])
             {
                 //dbg msg
-                os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: %{public}@", flowUUID, rule.uuid, endpointName);
+                os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: %{public}@", flowUUID, rule.uuid, endpointName);
                 
                 //match
                 isMatch = YES;
@@ -859,7 +859,7 @@ bail:
             }
             
             //dbg msg
-            os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ also checking %{public}@ vs. %{public}@", flowUUID, rule.uuid, url.host, rule.endpointHost);
+            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ also checking %{public}@ vs. %{public}@", flowUUID, rule.uuid, url.host, rule.endpointHost);
         
             //also check (just) host name
             // for example "a.b.c.com" will be checked against "c.com"
@@ -881,7 +881,7 @@ bail:
                 if(NSOrderedSame == [rule.endpointHost caseInsensitiveCompare:host])
                 {
                     //dbg msg
-                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: (host) %{public}@", flowUUID, rule.uuid, rule.endpointHost);
+                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: (host) %{public}@", flowUUID, rule.uuid, rule.endpointHost);
                     
                     //match
                     isMatch = YES;
@@ -908,7 +908,7 @@ bail:
     __block NSUInteger ruleIndex = -1;
     
     //dbg msg
-    os_log_debug(logHandle, "deleting rule, key: %{public}@, rule id: %{public}@", key, uuid);
+    os_log_info(logHandle, "deleting rule, key: %{public}@, rule id: %{public}@", key, uuid);
     
     //sync to access
     @synchronized(self.rules)
