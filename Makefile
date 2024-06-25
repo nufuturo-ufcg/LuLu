@@ -2,7 +2,7 @@ SHELL := /bin/bash
 PWD:=$(shell pwd)
 SCHEME ?= LuLu
 WORKSPACE_DIR=$(PWD)/lulu.xcworkspace
-DSTROOT=/Applications/
+DSTROOT=/tmp/Applications/
 XCODEBUILD=xcodebuild -workspace $(WORKSPACE_DIR) -scheme $(SCHEME)
 
 help:
@@ -13,16 +13,18 @@ help:
 	@printf "	test				Run the unit tests\n"
 	@printf "	install				Install application\n"
 
+all: clean install
+
 clean:
 	$(XCODEBUILD) clean
-
-build:
-	$(XCODEBUILD) build
 
 test:
 	$(XCODEBUILD) test
 
-install:
+build: test
+	$(XCODEBUILD) build
+
+install: test
 	$(XCODEBUILD) install DSTROOT=$(DSTROOT)
 
 default: help
