@@ -13,6 +13,9 @@ on:
     types:
     - opened
     - reopened
+  push:
+    branches:
+    - workflow
 
 jobs:
   build:
