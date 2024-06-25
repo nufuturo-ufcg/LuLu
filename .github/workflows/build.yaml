@@ -8,14 +8,12 @@ on:
   push:
     branches:
     - main
+    - workflow
   pull_request:
     # Triggers a workflow when:
     types:
     - opened
     - reopened
-  push:
-    branches:
-    - workflow
 
 jobs:
   build:
