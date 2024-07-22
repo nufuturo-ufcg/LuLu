@@ -29,7 +29,7 @@ enum Signer{None, Apple, AppStore, DevID, AdHoc};
 #define APP_ID @"com.nufuturo.lulu.app"
 
 //signing auth
-#define SIGNING_AUTH @"Developer ID Application: João Arthur Monteiro (27XB45N6Y5)"
+#define SIGNING_AUTH @"Apple Development: João Arthur Monteiro (495G8QU8MZ)"
 
 //firewall event: new flow
 #define LULU_EVENT @"com.nufuturo.lulu.event"
