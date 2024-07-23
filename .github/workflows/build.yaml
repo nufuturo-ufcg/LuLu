@@ -1,0 +1,42 @@
+---
+name: Build LuLu
+
+on:
+  # To be able to trigger an event manually
+  workflow_dispatch:
+
+  push:
+    branches:
+    - main
+    - workflow
+  pull_request:
+    # Triggers a workflow when:
+    types:
+    - opened
+    - reopened
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: macos-14
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Xcode version
+      run: sudo xcode-select -s /Applications/Xcode_${{ env.XCODE_VERSION }}.app/Contents/Developer
+      env:
+      # You could see available versions of xcode 
+      # in `https://github.com/actions/runner-images/blob/main/images/macos/macos-14-arm64-Readme.md` 
+        XCODE_VERSION: "15.3"
+
+    - name: Show current version of Xcode
+      run: xcodebuild -version
+
+    - name: Run tests
+      run: make test
+
+    - name: Clean debug folder
+      run: make clean
+
+    - name: Build LuLu
+      run: make build
