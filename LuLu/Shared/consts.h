@@ -29,7 +29,7 @@ enum Signer{None, Apple, AppStore, DevID, AdHoc};
 #define APP_ID @"com.objective-see.lulu.app"
 
 //signing auth
-#define SIGNING_AUTH @"Developer ID Application: Objective-See, LLC (VBG97UB4TA)"
+#define SIGNING_AUTH @"Apple Development: João Arthur Monteiro (495G8QU8MZ)"
 
 //firewall event: new flow
 #define LULU_EVENT @"com.objective-see.lulu.event"
