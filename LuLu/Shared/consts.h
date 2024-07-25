@@ -20,19 +20,19 @@ enum Signer{None, Apple, AppStore, DevID, AdHoc};
 #define OBJECTIVE_SEE_VENDOR "com.objectiveSee"
 
 //bundle ID
-#define BUNDLE_ID "com.nufuturo.lulu"
+#define BUNDLE_ID "com.objective-see.lulu"
 
 //extension bundle ID
-#define EXT_BUNDLE_ID @"com.nufuturo.lulu.extension"
+#define EXT_BUNDLE_ID @"com.objective-see.lulu.extension"
 
 //main app bundle id
-#define APP_ID @"com.nufuturo.lulu.app"
+#define APP_ID @"com.objective-see.lulu.app"
 
 //signing auth
-#define SIGNING_AUTH @"Developer ID Application: João Arthur Monteiro (27XB45N6Y5)"
+#define SIGNING_AUTH @"Apple Development: João Arthur Monteiro (495G8QU8MZ)"
 
 //firewall event: new flow
-#define LULU_EVENT @"com.nufuturo.lulu.event"
+#define LULU_EVENT @"com.objective-see.lulu.event"
 
 //lulu service
 #define LULU_SERVICE_NAME "com_objective_see_firewall"
@@ -59,7 +59,7 @@ enum Signer{None, Apple, AppStore, DevID, AdHoc};
 #define STATUS_CLIENT_ENABLED 1
 
 //daemon mach name
-#define DAEMON_MACH_SERVICE @"27XB45N6Y5.com.nufuturo.lulu"
+#define DAEMON_MACH_SERVICE @"VBG97UB4TA.com.objective-see.lulu"
 
 //rule state; not found
 #define RULE_STATE_NOT_FOUND -1
