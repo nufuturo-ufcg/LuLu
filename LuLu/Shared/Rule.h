@@ -23,6 +23,9 @@
 //uuid
 @property(nonatomic, retain)NSString* uuid;
 
+//rule id
+@property(nonatomic, retain)NSString* ruleID;
+
 //key
 @property(nonatomic, retain)NSString* key;
 
