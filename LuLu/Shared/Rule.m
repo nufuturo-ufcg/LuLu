@@ -34,7 +34,7 @@ extern os_log_t logHandle;
         
         //dbg msg
         os_log_debug(logHandle, "creating rule with: %{public}@", info);
-        
+                
         //create UUID
         self.uuid = [[NSUUID UUID] UUIDString];
         
@@ -127,9 +127,25 @@ extern os_log_t logHandle;
             //generate
             self.key = [self generateKey];
         }
+        
+        self.ruleID = [self generateID];
+        
+        os_log_debug(logHandle, "new rule id %{public}@", self.ruleID);
     }
         
     return self;
+}
+
+-(NSString*)generateID
+{
+    
+    NSString *ruleID = [NSString stringWithFormat:@"%@-%@-%@-%@-%@",
+                        self.csInfo[KEY_CS_ID],
+                        self.endpointAddr,
+                        self.endpointPort,
+                        self.type,
+                        self.action];
+    return ruleID;
 }
 
 //generate key
