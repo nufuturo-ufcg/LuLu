@@ -130,7 +130,7 @@ extern BlockList* blockList;
 // b) lookup matching rule & then apply
 // c) ...or ask user (alert via XPC) if no rule
 -(NEFilterNewFlowVerdict *)handleNewFlow:(NEFilterFlow *)flow {
-    os_log_debug(logHandle, "entrei aqui einnn");
+    
     //socket flow
     NEFilterSocketFlow* socketFlow = nil;
     

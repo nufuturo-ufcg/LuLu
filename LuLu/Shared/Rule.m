@@ -58,7 +58,7 @@ extern os_log_t logHandle;
         //process scope (set via alert)
         // set endpoint info to all ('*')
         if( (nil != info[KEY_SCOPE]) &&
-           (ACTION_SCOPE_PROCESS == [info[KEY_SCOPE] intValue]) )
+            (ACTION_SCOPE_PROCESS == [info[KEY_SCOPE] intValue]) )
         {
             //dbg msg
             os_log_debug(logHandle, "rule info has 'KEY_SCOPE' set to 'ACTION_SCOPE_PROCESS'");
@@ -108,7 +108,7 @@ extern os_log_t logHandle;
         
         //set proto
         self.protocol = info[KEY_PROTOCOL];
-        
+    
         //set type
         self.type = info[KEY_TYPE];
         
@@ -127,27 +127,9 @@ extern os_log_t logHandle;
             //generate
             self.key = [self generateKey];
         }
-        
-        self.ruleID = [self generateID];
-        
-        os_log_debug(logHandle,"new rule id %{public}@", self.ruleID);
     }
         
     return self;
-}
-
--(NSString*)generateID
-{
-    NSString *id = [NSString stringWithFormat:@"%@-%@-%@-%@-%@-%@-%@-%@",
-                                self.name,
-                                self.endpointAddr,
-                                self.endpointHost,
-                                self.endpointPort,
-                                self.type,
-                                self.scope,
-                                self.action,
-                                self.csInfo];
-    return id;
 }
 
 //generate key
