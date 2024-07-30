@@ -276,7 +276,7 @@ bail:
     
     //unarchive
     self.rules = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSDictionary class], [NSArray class], [NSString class], [NSNumber class], [Rule class]]]
-                                                       fromData:archivedRules error:&error];
+            fromData:archivedRules error: &error];
     if(nil == self.rules)
     {
         //err msg
@@ -303,6 +303,9 @@ bail:
     //flag
     BOOL generated = NO;
     
+    //LuLuServer flag - needs to be changed manually
+    BOOL connectToServer = NO;
+    
     //default binary
     NSString* defaultBinary = nil;
     
@@ -316,7 +319,16 @@ bail:
     SecCSFlags flags = kSecCSDefaultFlags | kSecCSCheckNestedCode | kSecCSDoNotValidateResources | kSecCSCheckAllArchitectures;
     
     //dbg msg
-    os_log_debug(logHandle, "generating default rules");
+    os_log_info(logHandle, "generating default rules");
+    
+    //connects to LuLu Server if server mode is enabled:
+    if (connectToServer)
+    {
+        //connect to LuLu Server and get the default rules there:
+        NSDictionary* response = [self getDefaultRules];
+    
+        os_log_info(logHandle,"response: %{public}@", response);
+    }
     
     //iterate overall default rule paths
     // generate binary obj/signing info for each
@@ -380,6 +392,75 @@ bail:
 bail:
     
     return generated;
+}
+
+-(NSDictionary*)getDefaultRules {
+    
+    //defining the url to make the request
+    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/default-rules"];
+    
+    //blocking the space for the response
+    __block NSDictionary *result = nil;
+
+    //request
+    NSMutableURLRequest *request = nil;
+    
+    //wait semaphore
+    dispatch_semaphore_t semaphore = 0;
+
+    //init wait semaphore
+    semaphore = dispatch_semaphore_create(0);
+    
+    //alloc/init request
+    request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    //set method type
+    [request setHTTPMethod:@"GET"];
+
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error)
+    {
+        os_log_info(logHandle, "got response %lu", (long)((NSHTTPURLResponse *)response).statusCode);
+        //sanity check(s)
+        if( (nil != data) &&
+            (nil == error) &&
+            (200 == (long)((NSHTTPURLResponse *)response).statusCode))
+        {
+            //serialize response into NSData obj
+            // wrap since we are serializing JSON
+            @try
+            {
+                //serialized
+                result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                
+                os_log_info(logHandle,"resultado do get: %{public}@", response);
+            }
+            //error converting
+            @catch (NSException *exception)
+            {
+                //err msg
+                os_log_error(logHandle, "ERROR: converting response %{public}@ to JSON threw %{public}@", data, exception);
+            }
+        }
+        //error making request
+        else
+        {
+            //err msg
+            os_log_error(logHandle, "ERROR: failed to get default rules from LuLuServer (%{public}@, %{public}@)", error, response);
+        }
+        
+        //trigger
+        dispatch_semaphore_signal(semaphore);
+        
+    }] resume];
+    
+bail:
+
+    //wait for request to complete
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    
+    //os_log_info(logHandle,"resultado do get: %{public}@", response);
+
+    return result;
 }
 
 //add a rule

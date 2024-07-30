@@ -20,6 +20,9 @@
 
 /* PROPERTIES */
 
+//rule id
+@property(nonatomic, retain)NSString* ruleID;
+
 //uuid
 @property(nonatomic, retain)NSString* uuid;
 

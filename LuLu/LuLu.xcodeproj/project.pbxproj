@@ -741,12 +741,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2.6.3;
 				DEVELOPMENT_TEAM = 27XB45N6Y5;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = 27XB45N6Y5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = App/Info.plist;
@@ -759,8 +758,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nufuturo.lulu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = LuLuAppProfile;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = LuLuAppProfile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -769,12 +767,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2.6.3;
 				DEVELOPMENT_TEAM = 27XB45N6Y5;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = 27XB45N6Y5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = App/Info.plist;
@@ -786,8 +783,7 @@
 				MARKETING_VERSION = 2.6.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nufuturo.lulu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = LuLuAppProfile;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = LuLuAppProfile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -795,11 +791,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Extension/Extension.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2.6.3;
 				DEVELOPMENT_TEAM = 27XB45N6Y5;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = 27XB45N6Y5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Extension/Info.plist;
@@ -814,8 +809,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nufuturo.lulu.extension;
 				PRODUCT_NAME = com.nufuturo.lulu.extension;
-				PROVISIONING_PROFILE_SPECIFIER = LuLuExtensionProfile;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = LuLuExtensionProfile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -824,11 +818,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Extension/Extension.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2.6.3;
 				DEVELOPMENT_TEAM = 27XB45N6Y5;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = 27XB45N6Y5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Extension/Info.plist;
@@ -842,8 +835,7 @@
 				MARKETING_VERSION = 2.6.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nufuturo.lulu.extension;
 				PRODUCT_NAME = com.nufuturo.lulu.extension;
-				PROVISIONING_PROFILE_SPECIFIER = LuLuExtensionProfile;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = LuLuExtensionProfile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
