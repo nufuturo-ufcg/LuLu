@@ -276,7 +276,7 @@ bail:
     
     //unarchive
     self.rules = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSDictionary class], [NSArray class], [NSString class], [NSNumber class], [Rule class]]]
-            fromData:archivedRules error: &error];
+                                                       fromData:archivedRules error:&error];
     if(nil == self.rules)
     {
         //err msg
