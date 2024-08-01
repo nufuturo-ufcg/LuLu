@@ -246,11 +246,11 @@
 				LastUpgradeCheck = 1000;
 				TargetAttributes = {
 					4BE4905C10445E0A006BE471 = {
-						DevelopmentTeam = VBG97UB4TA;
+						DevelopmentTeam = 27XB45N6Y5;
 						ProvisioningStyle = Manual;
 					};
 					8D1107260486CEB800E47090 = {
-						DevelopmentTeam = VBG97UB4TA;
+						DevelopmentTeam = 27XB45N6Y5;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
@@ -336,9 +336,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2.6.3;
 				DEVELOPMENT_TEAM = VBG97UB4TA;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 27XB45N6Y5;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
 				INFOPLIST_FILE = Helper/Info.plist;
@@ -371,9 +373,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2.6.3;
 				DEVELOPMENT_TEAM = VBG97UB4TA;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 27XB45N6Y5;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
 				INFOPLIST_FILE = Helper/Info.plist;
@@ -407,10 +411,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2.6.3;
 				DEVELOPMENT_TEAM = VBG97UB4TA;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 27XB45N6Y5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
@@ -437,10 +443,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2.6.3;
 				DEVELOPMENT_TEAM = VBG97UB4TA;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 27XB45N6Y5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
