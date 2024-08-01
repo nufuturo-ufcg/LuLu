@@ -235,7 +235,13 @@ bail:
     Rule* matchingRule = nil;
     
     //flow uuid
-    NSString *flowUUID = flow.identifier.UUIDString;
+    NSString* flowUUID = flow.identifier.UUIDString;
+    
+    //socket flow
+    NEFilterSocketFlow* socketFlow = (NEFilterSocketFlow*)flow;
+    
+    //rule that will be created
+    Rule* newRule = nil;
     
     //console user
     NSString* consoleUser = nil;
@@ -396,6 +402,12 @@ bail:
         //dbg msg
         os_log_info(logHandle, "FLOW_ID=%{public}@ client in passive mode, so allowing %d/%{public}@", flowUUID, process.pid, process.binary.name);
         
+        os_log_info(logHandle, "CATEGORY=connection FLOW_ID=%{public}@, ENDPOINT=%{public}@, DIRECTION=%ld, PROTOCOL=%d",
+                flowUUID,
+                ((NWHostEndpoint*)((NEFilterSocketFlow*)flow).remoteEndpoint),
+                socketFlow.direction,
+                ((NEFilterSocketFlow*)flow).socketProtocol);
+
         //all set
         goto bail;
     }
@@ -450,7 +462,7 @@ bail:
                 // type: apple, action: allow
                 info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_APPLE} mutableCopy];
                 
-                Rule *newRule = [[Rule alloc] init:info];
+                newRule = [[Rule alloc] init:info];
                 
                 //dbg msg
                 os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ due to preferences, allowing (non-graylisted) apple process %d/%{public}@", flowUUID, newRule.uuid, process.pid, process.path);
@@ -537,7 +549,7 @@ bail:
             //init info for rule creation
             info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_BASELINE} mutableCopy];
             
-            Rule *newRule = [[Rule alloc] init:info];
+            newRule = [[Rule alloc] init:info];
 
             //dbg msg
             os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ 3rd-party item was installed prior, allowing & adding rule", flowUUID, newRule.uuid);
@@ -613,7 +625,7 @@ bail:
         //init info for rule creation
         info = [@{KEY_PATH:process.path, KEY_ACTION:@RULE_STATE_ALLOW, KEY_TYPE:@RULE_TYPE_UNCLASSIFIED} mutableCopy];
 
-        Rule *newRule = [[Rule alloc] init:info];
+        newRule = [[Rule alloc] init:info];
 
         //dbg msg
         os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ no active user or no connect client, will allow (and create rule)...", flowUUID, newRule.uuid);
@@ -638,9 +650,16 @@ bail:
         goto bail;
     }
     
+    // socket protocol follow IANA format.
+    os_log_info(logHandle, "CATEGORY=connection, FLOW_ID=%{public}@, ENDPOINT=%{public}@, DIRECTION=%ld, PROTOCOL=%d",
+                flowUUID,
+                ((NWHostEndpoint*)((NEFilterSocketFlow*)flow).remoteEndpoint),
+                socketFlow.direction,
+                ((NEFilterSocketFlow*)flow).socketProtocol);
+        
     //sending to user, so pause!
     verdict = [NEFilterNewFlowVerdict pauseVerdict];
-        
+    
     //create/deliver alert
     // note: handles response + next/any related flow
     [self alert:(NEFilterSocketFlow*)flow process:process csChange:csChange];

@@ -640,7 +640,7 @@ bail:
                 else if(YES == [rule.endpointPort isEqualToString:VALUE_ANY])
                 {
                     //dbg msg
-                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule port is any ('*'), will check host/url", flowUUID, rule.uuid);
+                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule port is any ('*'), will check host/url", flowUUID, rule.uuid);
                     
                     //check endpoint host/url
                     if(YES == [self endpointAddrMatch:flow rule:rule])
@@ -661,14 +661,14 @@ bail:
                 else if(YES == [rule.endpointAddr isEqualToString:VALUE_ANY])
                 {
                     //dbg msg
-                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule address is any ('*'), will check port", flowUUID, rule.uuid);
+                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule address is any ('*')", flowUUID, rule.uuid);
                     
                     //addr is any
                     //so check the port
                     if(YES == [rule.endpointPort isEqualToString:remoteEndpoint.port])
                     {
                         //dbg msg
-                        os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'partial' (endpoint port)", flowUUID, rule.uuid);
+                        os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'partial' (endpoint port)", flowUUID, rule.uuid);
                         
                         //partial
                         partialMatch = rule;
@@ -683,7 +683,7 @@ bail:
                 else
                 {
                     //dbg msg
-                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ address and port set, will check both for match", flowUUID, rule.uuid);
+                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ address and port set, will check both for match", flowUUID, rule.uuid);
                     
                     //port match?
                     if( (YES == [self endpointAddrMatch:flow rule:rule]) &&
@@ -829,7 +829,7 @@ bail:
             NSString* host = nil;
             
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ checking %{public}@ vs. %{public}@", flowUUID, rule.uuid, endpointName, rule.endpointAddr);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ checking %{public}@ vs. %{public}@", flowUUID, rule.uuid, endpointName, rule.endpointAddr);
             
             //init url
             // add prefix
@@ -859,7 +859,7 @@ bail:
             }
             
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ also checking %{public}@ vs. %{public}@", flowUUID, rule.uuid, url.host, rule.endpointHost);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ checking %{public}@ vs. %{public}@", flowUUID, rule.uuid, url.host, rule.endpointHost);
         
             //also check (just) host name
             // for example "a.b.c.com" will be checked against "c.com"
