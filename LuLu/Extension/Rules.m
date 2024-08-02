@@ -304,7 +304,7 @@ bail:
     BOOL generated = NO;
     
     //LuLuServer flag - needs to be changed manually
-    BOOL connectToServer = NO;
+    BOOL connectToServer = LULU_SERVER_MODE;
     
     //default binary
     NSString* defaultBinary = nil;
@@ -397,7 +397,7 @@ bail:
 -(NSDictionary*)getDefaultRules {
     
     //defining the url to make the request
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/default-rules"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", LULU_SERVER_URL]];
     
     //blocking the space for the response
     __block NSDictionary *result = nil;
