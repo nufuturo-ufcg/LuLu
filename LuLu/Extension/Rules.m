@@ -304,7 +304,7 @@ bail:
     BOOL generated = NO;
     
     //LuLuServer flag - needs to be changed manually
-    BOOL connectToServer = NO;
+    BOOL connectToServer = LULU_SERVER_MODE;
     
     //default binary
     NSString* defaultBinary = nil;
@@ -397,7 +397,7 @@ bail:
 -(NSDictionary*)getDefaultRules {
     
     //defining the url to make the request
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/default-rules"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", LULU_SERVER_URL]];
     
     //blocking the space for the response
     __block NSDictionary *result = nil;
@@ -432,7 +432,6 @@ bail:
                 //serialized
                 result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
                 
-                os_log_info(logHandle,"resultado do get: %{public}@", response);
             }
             //error converting
             @catch (NSException *exception)
@@ -458,7 +457,6 @@ bail:
     //wait for request to complete
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     
-    //os_log_info(logHandle,"resultado do get: %{public}@", response);
 
     return result;
 }
