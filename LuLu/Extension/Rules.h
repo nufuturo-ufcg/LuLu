@@ -18,11 +18,6 @@
 @import Foundation;
 @import NetworkExtension;
 
-//LuLu Server URL
-#define LULU_SERVER_URL @"http://localhost:8080/default-user-rules"
-
-//LuLu Server Flag
-#define LULU_SERVER_MODE YES
 
 @class Rule;
 

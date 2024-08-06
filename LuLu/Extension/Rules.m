@@ -432,7 +432,6 @@ bail:
                 //serialized
                 result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
                 
-                os_log_info(logHandle,"resultado do get: %{public}@", response);
             }
             //error converting
             @catch (NSException *exception)
@@ -458,7 +457,6 @@ bail:
     //wait for request to complete
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     
-    //os_log_info(logHandle,"resultado do get: %{public}@", response);
 
     return result;
 }
