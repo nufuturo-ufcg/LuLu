@@ -70,8 +70,8 @@ OSStatus verifyApp(NSString* path, NSString* signingAuth)
     status = SecStaticCodeCheckValidity(staticCode, kSecCSDefaultFlags, requirementRef);
     if(noErr != status)
     {
-        //dbg msg
-        os_log_debug(logHandle, "SecStaticCodeCheckValidity failed with: %d/%#x", status, status);
+        //err msg
+        os_log_error(logHandle, "ERROR: SecStaticCodeCheckValidity failed with: %d/%#x", status, status);
     
         //bail
         goto bail;

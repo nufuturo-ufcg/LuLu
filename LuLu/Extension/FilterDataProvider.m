@@ -147,7 +147,7 @@ extern BlockList* blockList;
     static dispatch_once_t onceToken = 0;
     
     //log msg
-    os_log_info(logHandle, "FLOW_ID=%{public}@ method '%s' invoked", flowUUID, __PRETTY_FUNCTION__);
+    os_log_debug(logHandle, "FLOW_ID=%{public}@ method '%s' invoked", flowUUID, __PRETTY_FUNCTION__);
     
     //init verdict to allow
     verdict = [NEFilterNewFlowVerdict allowVerdict];
@@ -158,7 +158,7 @@ extern BlockList* blockList;
         (YES == [preferences.preferences[PREF_IS_DISABLED] boolValue]) )
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ no prefs (yet) || disabled, so allowing flow", flowUUID);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ no prefs (yet) || disabled, so allowing flow", flowUUID);
         
         //bail
         goto bail;
@@ -176,7 +176,7 @@ extern BlockList* blockList;
     dispatch_once(&onceToken, ^{
         
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ init'ing block list", flowUUID);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ init'ing block list", flowUUID);
         
         //alloc/init/load block list
         blockList = [[BlockList alloc] init];
@@ -194,7 +194,7 @@ extern BlockList* blockList;
     if(NETrafficDirectionOutbound != socketFlow.direction)
     {
         //log msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ ignoring non-outbound traffic (direction: %ld)", flowUUID, (long)socketFlow.direction);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ ignoring non-outbound traffic (direction: %ld)", flowUUID, (long)socketFlow.direction);
            
         //bail
         goto bail;
@@ -266,7 +266,7 @@ bail:
     if(nil == process)
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ no process found in cache, will create", flowUUID);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ no process found in cache, will create", flowUUID);
         
         //create
         // also adds to cache
@@ -274,7 +274,7 @@ bail:
     }
 
     //dbg msg
-    else os_log_info(logHandle, "FLOW_ID=%{public}@ found process object in cache: %{public}@ (pid: %d)", flowUUID, process.path, process.pid);
+    else os_log_debug(logHandle, "FLOW_ID=%{public}@ found process object in cache: %{public}@ (pid: %d)", flowUUID, process.path, process.pid);
     
     //sanity check
     // no process? just allow...
@@ -301,7 +301,7 @@ bail:
         (YES != [alerts.consoleUser isEqualToString:consoleUser]) )
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ current console user '%{public}@', is different than '%{public}@', so allowing flow: %{public}@", flowUUID, consoleUser, alerts.consoleUser, ((NEFilterSocketFlow*)flow).remoteEndpoint);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ current console user '%{public}@', is different than '%{public}@', so allowing flow: %{public}@", flowUUID, consoleUser, alerts.consoleUser, ((NEFilterSocketFlow*)flow).remoteEndpoint);
         
         //all set
         goto bail;
@@ -312,7 +312,7 @@ bail:
     if(YES == [preferences.preferences[PREF_BLOCK_MODE] boolValue])
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ client in block mode, so disallowing %d/%{public}@", flowUUID, process.pid, process.binary.name);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ client in block mode, so disallowing %d/%{public}@", flowUUID, process.pid, process.binary.name);
         
         //deny
         verdict = [NEFilterNewFlowVerdict dropVerdict];
@@ -327,13 +327,13 @@ bail:
         (0 != [preferences.preferences[PREF_BLOCK_LIST] length]) )
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ client is using block list '%{public}@' (%lu items) ...will check for match", flowUUID, preferences.preferences[PREF_BLOCK_LIST], (unsigned long)blockList.items.count);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ client is using block list '%{public}@' (%lu items) ...will check for match", flowUUID, preferences.preferences[PREF_BLOCK_LIST], (unsigned long)blockList.items.count);
         
         //match in block list?
         if(YES == [blockList isMatch:(NEFilterSocketFlow*)flow])
         {
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ flow matches item in block list, so denying", flowUUID);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ flow matches item in block list, so denying", flowUUID);
             
             //deny
             verdict = [NEFilterNewFlowVerdict dropVerdict];
@@ -342,7 +342,7 @@ bail:
             goto bail;
         }
         //dbg msg
-        else os_log_info(logHandle, "FLOW_ID=%{public}@ remote endpoint/URL not on block list...", flowUUID);
+        else os_log_debug(logHandle, "FLOW_ID=%{public}@ remote endpoint/URL not on block list...", flowUUID);
     }
         
     //CHECK:
@@ -354,19 +354,20 @@ bail:
     if(nil != matchingRule)
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ found matching rule for %d/%{public}@: %{public}@", flowUUID, matchingRule.uuid, process.pid, process.binary.name, matchingRule);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ found matching rule for %d/%{public}@: %{public}@", flowUUID, matchingRule.uuid, process.pid, process.binary.name, matchingRule);
         
         //deny?
         // otherwise will default to allow
         if(RULE_STATE_BLOCK == matchingRule.action.intValue)
         {
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ setting verdict to: BLOCK", flowUUID, matchingRule.uuid);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ setting verdict to: BLOCK", flowUUID, matchingRule.uuid);
             
             //deny
             verdict = [NEFilterNewFlowVerdict dropVerdict];
         }
         //allow (msg)
+        //NOTE(winiciusallan): this type of rule must be in a single entry with "RULE" category
         else os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule says: ALLOW", flowUUID, matchingRule.uuid);
     
         //all set
@@ -381,7 +382,7 @@ bail:
     if(YES == csChange)
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ found rule set for %d/%{public}@: %{public}@, but code signing info has changed", flowUUID, process.pid, process.binary.name, matchingRule);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ found rule set for %d/%{public}@: %{public}@, but code signing info has changed", flowUUID, process.pid, process.binary.name, matchingRule);
         
         //update cs info
         [rules updateCSInfo:process];
@@ -390,7 +391,7 @@ bail:
     else
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ no (saved) rule found for %d/%{public}@", flowUUID, process.pid, process.binary.name);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ no (saved) rule found for %d/%{public}@", flowUUID, process.pid, process.binary.name);
     }
 
     //no client?
@@ -400,7 +401,7 @@ bail:
     if(YES == [preferences.preferences[PREF_PASSIVE_MODE] boolValue])
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ client in passive mode, so allowing %d/%{public}@", flowUUID, process.pid, process.binary.name);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ client in passive mode, so allowing %d/%{public}@", flowUUID, process.pid, process.binary.name);
         
         os_log_info(logHandle, "CATEGORY=connection FLOW_ID=%{public}@, ENDPOINT=%{public}@, DIRECTION=%ld, PROTOCOL=%d",
                 flowUUID,
@@ -413,7 +414,7 @@ bail:
     }
     
     //dbg msg
-    os_log_info(logHandle, "FLOW_ID=%{public}@ client not in passive mode", flowUUID);
+    os_log_debug(logHandle, "FLOW_ID=%{public}@ client not in passive mode", flowUUID);
     
     //CHECK:
     // there a related alert shown (i.e. for same process)
@@ -421,7 +422,7 @@ bail:
     if(YES == [alerts isRelated:process])
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ an alert is shown for process %d/%{public}@, so holding off delivering for now...", flowUUID, process.pid, process.binary.name);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ an alert is shown for process %d/%{public}@, so holding off delivering for now...", flowUUID, process.pid, process.binary.name);
         
         //add related flow
         [self addRelatedFlow:process.key flow:(NEFilterSocketFlow*)flow];
@@ -434,7 +435,7 @@ bail:
     }
     
     //dbg msg
-    os_log_info(logHandle, "no related alert, currently shown...");
+    os_log_debug(logHandle, "no related alert, currently shown...");
     
     //CHECK:
     // Apple process and 'PREF_ALLOW_APPLE' is set?
@@ -445,13 +446,13 @@ bail:
     if(YES == [preferences.preferences[PREF_ALLOW_APPLE] boolValue])
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ 'Allow Apple' preference is set, will check if is an Apple binary", flowUUID);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ 'Allow Apple' preference is set, will check if is an Apple binary", flowUUID);
         
         //signed by Apple?
         if(Apple == [process.csInfo[KEY_CS_SIGNER] intValue])
         {
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ is an Apple binary...", flowUUID);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ is an Apple binary...", flowUUID);
             
             //though make sure isn't a graylisted binary
             // such binaries, even if signed by apple, should alert user
@@ -465,7 +466,7 @@ bail:
                 newRule = [[Rule alloc] init:info];
                 
                 //dbg msg
-                os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ due to preferences, allowing (non-graylisted) apple process %d/%{public}@", flowUUID, newRule.uuid, process.pid, process.path);
+                os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ due to preferences, allowing (non-graylisted) apple process %d/%{public}@", flowUUID, newRule.uuid, process.pid, process.path);
                 
                 //add process cs info
                 if(nil != process.csInfo)
@@ -496,7 +497,7 @@ bail:
             else
             {
                 //dbg msg
-                os_log_info(logHandle, "FLOW_ID=%{public}@ while signed by apple, %d/%{public}@ is gray listed, so will alert", flowUUID, process.pid, process.binary.name);
+                os_log_debug(logHandle, "FLOW_ID=%{public}@ while signed by apple, %d/%{public}@ is gray listed, so will alert", flowUUID, process.pid, process.binary.name);
                 
                 //pause
                 verdict = [NEFilterNewFlowVerdict pauseVerdict];
@@ -514,7 +515,7 @@ bail:
     else
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ 'Allow Apple' preference not set, so skipped 'Is Apple' check", flowUUID);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ 'Allow Apple' preference not set, so skipped 'Is Apple' check", flowUUID);
     }
     
     //if it's a prev installed 3rd-party process (w/ no CS change) and that preference is set; allow!
@@ -526,7 +527,7 @@ bail:
         NSDate* date = nil;
         
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ 3rd-party app, plus 'PREF_ALLOW_INSTALLED' is set...", flowUUID);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ 3rd-party app, plus 'PREF_ALLOW_INSTALLED' is set...", flowUUID);
         
         //only once
         // get install date
@@ -552,7 +553,7 @@ bail:
             newRule = [[Rule alloc] init:info];
 
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ 3rd-party item was installed prior, allowing & adding rule", flowUUID, newRule.uuid);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ 3rd-party item was installed prior, allowing & adding rule", flowUUID, newRule.uuid);
             //add process cs info
             if(nil != process.csInfo) info[KEY_CS_INFO] = process.csInfo;
             
@@ -579,7 +580,7 @@ bail:
     if(YES == [preferences.preferences[PREF_ALLOW_DNS] boolValue])
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ 'allow DNS traffic' is enabled, so checking port/protocol", flowUUID);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ 'allow DNS traffic' is enabled, so checking port/protocol", flowUUID);
         
         //check proto (UDP) and port (53)
         if( (IPPROTO_UDP == ((NEFilterSocketFlow*)flow).socketProtocol) &&
@@ -600,13 +601,13 @@ bail:
     if(YES == [preferences.preferences[PREF_ALLOW_SIMULATOR] boolValue])
     {
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ 'allow simulator apps' is enabled, so checking process", flowUUID);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ 'allow simulator apps' is enabled, so checking process", flowUUID);
         
         //is simulator app?
         if(YES == isSimulatorApp(process.path))
         {
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ %{public}@, is an simulator app, so will allow", flowUUID, process.path);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ %{public}@, is an simulator app, so will allow", flowUUID, process.path);
             
             //allow
             verdict = [NEFilterNewFlowVerdict allowVerdict];
@@ -689,7 +690,7 @@ bail:
     alert[KEY_CS_CHANGE] = [NSNumber numberWithBool:csChange];
     
     //dbg msg
-    os_log_info(logHandle, "FLOW_ID=%{public}@ created alert...", flowUUID);
+    os_log_debug(logHandle, "FLOW_ID=%{public}@ created alert...", flowUUID);
 
     //deliver alert
     // and process user response
@@ -758,7 +759,7 @@ bail:
 -(void)addRelatedFlow:(NSString*)key flow:(NEFilterSocketFlow*)flow
 {
     //dbg msg
-    os_log_info(logHandle, "FLOW_ID=%{public}@ adding flow to 'related': %{public}@ / %{public}@", flow.identifier.UUIDString, key, flow);
+    os_log_debug(logHandle, "FLOW_ID=%{public}@ adding flow to 'related': %{public}@ / %{public}@", flow.identifier.UUIDString, key, flow);
     
     //sync/save
     @synchronized(self.relatedFlows)
