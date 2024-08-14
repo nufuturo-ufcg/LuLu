@@ -12,12 +12,7 @@
 @import OSLog;
 @import Foundation;
 
-@interface LogHandler : NSObject
-{
-    
-}
-
-/* PROPERTIES */
+@protocol LogHandler <NSObject>
 
 /* METHODS */
 
@@ -27,7 +22,9 @@
 
 -(void)logError:(NSDictionary*)infos;
 
-// -(void)commitLog:(bool)partial(NSDictionary*)infos;
-    
 
-#endif /* LogHandler_h */
+-(void)commitLog;
+    
+@end
+
+#endif
