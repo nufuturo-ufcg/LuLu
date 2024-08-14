@@ -333,9 +333,7 @@ bail:
                     
                     Rule* organizationRule = [[Rule alloc] initFromJSON: serverRule];
                     
-                    BOOL addedRule = [self add: organizationRule save:NO];
-
-                    if(addedRule == NO) {
+                    if(![self add: organizationRule save:NO]) {
                        //err msg
                         os_log_error(logHandle, "ERROR: failed to add rule");
                     }
