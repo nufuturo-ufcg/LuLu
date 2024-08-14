@@ -303,9 +303,6 @@ bail:
     //flag
     BOOL generated = NO;
     
-    //LuLuServer flag - needs to be changed manually
-    BOOL connectToServer = LULU_SERVER_MODE;
-    
     //default binary
     NSString* defaultBinary = nil;
     
@@ -319,15 +316,30 @@ bail:
     SecCSFlags flags = kSecCSDefaultFlags | kSecCSCheckNestedCode | kSecCSDoNotValidateResources | kSecCSCheckAllArchitectures;
     
     //dbg msg
-    os_log_info(logHandle, "generating default rules");
-    
+    os_log_debug(logHandle, "generating default rules");
+
     //connects to LuLu Server if server mode is enabled:
-    if (connectToServer)
+    if (LULU_SERVER_MODE)
     {
         //connect to LuLu Server and get the default rules there:
         NSDictionary* response = [self getDefaultRules];
     
-        os_log_info(logHandle,"response: %{public}@", response);
+        os_log_debug(logHandle,"response: %{public}@", response);
+
+        if (response != nil) {
+            
+            for (NSString* key in response) {
+                for (NSDictionary* serverRule in response[key]) {
+                    
+                    Rule* organizationRule = [[Rule alloc] initFromJSON: serverRule];
+                    
+                    if(![self add: organizationRule save:NO]) {
+                       //err msg
+                        os_log_error(logHandle, "ERROR: failed to add rule");
+                    }
+                }
+            }
+        }
     }
     
     //iterate overall default rule paths
@@ -386,6 +398,8 @@ bail:
         goto bail;
     }
 
+    
+
     //happy
     generated = YES;
     
@@ -419,7 +433,7 @@ bail:
 
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error)
     {
-        os_log_info(logHandle, "got response %lu", (long)((NSHTTPURLResponse *)response).statusCode);
+        os_log_debug(logHandle, "got response %lu", (long)((NSHTTPURLResponse *)response).statusCode);
         //sanity check(s)
         if( (nil != data) &&
             (nil == error) &&

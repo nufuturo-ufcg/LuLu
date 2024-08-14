@@ -401,5 +401,4 @@ enum Signer{None, Apple, AppStore, DevID, AdHoc};
 
 //LuLu Server Flag
 #define LULU_SERVER_MODE NO
-
 #endif /* const_h */
