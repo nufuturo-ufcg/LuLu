@@ -322,24 +322,22 @@ bail:
     if (LULU_SERVER_MODE)
     {
         //connect to LuLu Server and get the default rules there:
-         NSDictionary* response = [self getDefaultRules];
+        NSDictionary* response = [self getDefaultRules];
     
         os_log_debug(logHandle,"response: %{public}@", response);
 
         if (response != nil) {
-            //iterating over each key in response: 
-            for (NSString* key in response){
+            
+            for (NSString* key in response) {
                 for (NSDictionary* serverRule in response[key]) {
-
-
+                    
                     Rule* organizationRule = [[Rule alloc] initFromJSON: serverRule];
+                    
+                    BOOL addedRule = [self add: organizationRule save:NO];
 
-                    if(YES != [self add: organizationRule save:NO]) {
-                        //err msg
+                    if(addedRule == NO) {
+                       //err msg
                         os_log_error(logHandle, "ERROR: failed to add rule");
-                        
-                        //skip
-                        continue;
                     }
                 }
             }
