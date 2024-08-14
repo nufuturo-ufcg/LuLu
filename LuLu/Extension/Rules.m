@@ -704,7 +704,7 @@ bail:
                 {
                     //dbg msg
                     //check os_log_info
-                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'any'", flowUUID, rule.uuid);
+                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'any'", flowUUID, rule.uuid);
                     
                     //any
                     anyMatch = rule;
@@ -718,14 +718,14 @@ bail:
                 else if(YES == [rule.endpointPort isEqualToString:VALUE_ANY])
                 {
                     //dbg msg
-                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule port is any ('*'), will check host/url", flowUUID, rule.uuid);
+                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule port is any ('*'), will check host/url", flowUUID, rule.uuid);
                     
                     //check endpoint host/url
                     if(YES == [self endpointAddrMatch:flow rule:rule])
                     {
                         //dbg msg
                         //check os_log_info
-                        os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'partial' (endpoint addr)", flowUUID, rule.uuid);
+                        os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'partial' (endpoint addr)", flowUUID, rule.uuid);
                         
                         //partial
                         partialMatch = rule;
@@ -740,7 +740,7 @@ bail:
                 else if(YES == [rule.endpointAddr isEqualToString:VALUE_ANY])
                 {
                     //dbg msg
-                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule address is any ('*')", flowUUID, rule.uuid);
+                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule address is any ('*')", flowUUID, rule.uuid);
                     
                     //addr is any
                     //so check the port
@@ -770,7 +770,7 @@ bail:
                     {
                         //dbg msg
                         //check os_log_info
-                            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'exact'", flowUUID, rule.uuid);
+                            os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: 'exact'", flowUUID, rule.uuid);
                             
                             //exact
                             extactMatch = rule;
@@ -929,7 +929,7 @@ bail:
             if(NSOrderedSame == [rule.endpointAddr caseInsensitiveCompare:endpointName])
             {
                 //dbg msg
-                os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: %{public}@", flowUUID, rule.uuid, endpointName);
+                os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: %{public}@", flowUUID, rule.uuid, endpointName);
                 
                 //match
                 isMatch = YES;
@@ -962,7 +962,7 @@ bail:
                 {
                     //dbg msg
                     //check os_log_info
-                    os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: (host) %{public}@", flowUUID, rule.uuid, rule.endpointHost);
+                    os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule match: (host) %{public}@", flowUUID, rule.uuid, rule.endpointHost);
                     
                     //match
                     isMatch = YES;

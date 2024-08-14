@@ -34,6 +34,7 @@ extern Preferences* preferences;
 //block list
 extern BlockList* blockList;
 
+
 @implementation FilterDataProvider
 
 @synthesize cache;
@@ -57,6 +58,7 @@ extern BlockList* blockList;
         
         //alloc related flows
         self.relatedFlows = [NSMutableDictionary dictionary];
+        
     }
     
     return self;
@@ -187,7 +189,7 @@ extern BlockList* blockList;
     remoteEndpoint = (NWHostEndpoint*)socketFlow.remoteEndpoint;
     
     //log msg
-    os_log_info(logHandle, "FLOW_ID=%{public}@ remote endpoint: %{public}@ / url: %{public}@", flowUUID, remoteEndpoint, flow.URL);
+    os_log_debug(logHandle, "FLOW_ID=%{public}@ remote endpoint: %{public}@ / url: %{public}@", flowUUID, remoteEndpoint, flow.URL);
     
     //ignore non-outbound traffic
     // even though we init'd `NETrafficDirectionOutbound`, sometimes get inbound traffic :|
@@ -204,6 +206,8 @@ extern BlockList* blockList;
     // determine verdict
     // deliver alert (if necessary)
     verdict = [self processEvent:flow];
+    
+    verdict.shouldReport = YES;
     
     //log msg
     os_log_info(logHandle, "FLOW_ID=%{public}@ verdict: %{public}@", flowUUID, verdict);
@@ -368,7 +372,7 @@ bail:
         }
         //allow (msg)
         //NOTE(winiciusallan): this type of rule must be in a single entry with "RULE" category
-        else os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule says: ALLOW", flowUUID, matchingRule.uuid);
+        else os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule says: ALLOW", flowUUID, matchingRule.uuid);
     
         //all set
         goto bail;
@@ -537,7 +541,7 @@ bail:
             installDate = preferences.preferences[PREF_INSTALL_TIMESTAMP];
             
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ LuLu's install date: %{public}@", flowUUID, installDate);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ LuLu's install date: %{public}@", flowUUID, installDate);
             
         });
         
@@ -587,7 +591,7 @@ bail:
             (YES == [((NWHostEndpoint*)((NEFilterSocketFlow*)flow).remoteEndpoint).port isEqualToString:@"53"]) )
         {
             //dbg msg
-            os_log_info(logHandle, "FLOW_ID=%{public}@ protocol is 'UDP' and port is '53', (so likely DNS traffic) ...will allow", flowUUID);
+            os_log_debug(logHandle, "FLOW_ID=%{public}@ protocol is 'UDP' and port is '53', (so likely DNS traffic) ...will allow", flowUUID);
             
             //allow
             verdict = [NEFilterNewFlowVerdict allowVerdict];
@@ -629,7 +633,7 @@ bail:
         newRule = [[Rule alloc] init:info];
 
         //dbg msg
-        os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ no active user or no connect client, will allow (and create rule)...", flowUUID, newRule.uuid);
+        os_log_debug(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ no active user or no connect client, will allow (and create rule)...", flowUUID, newRule.uuid);
         
         //add process cs info?
         if(nil != process.csInfo) info[KEY_CS_INFO] = process.csInfo;
@@ -651,7 +655,7 @@ bail:
         goto bail;
     }
     
-    // socket protocol follow IANA format.
+    // socket protocol follows IANA format.
     os_log_info(logHandle, "CATEGORY=connection, FLOW_ID=%{public}@, ENDPOINT=%{public}@, DIRECTION=%ld, PROTOCOL=%d",
                 flowUUID,
                 ((NWHostEndpoint*)((NEFilterSocketFlow*)flow).remoteEndpoint),
@@ -671,6 +675,10 @@ bail:
     //;} //pool
     
     return verdict;
+}
+
+-(void)handleReport:(NEFilterReport *)report
+{
 }
 
 //1. create and deliver alert
