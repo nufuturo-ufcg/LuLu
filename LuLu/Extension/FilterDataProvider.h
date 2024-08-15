@@ -12,6 +12,7 @@
 @import NetworkExtension;
 
 #import "GrayList.h"
+#import "ConnectionLogHandler.h"
 
 @interface FilterDataProvider : NEFilterDataProvider
 
@@ -25,5 +26,7 @@
 
 //related flows
 @property(nonatomic, retain)NSMutableDictionary* relatedFlows;
+
+@property(nonatomic, retain)ConnectionLogHandler* logger;
 
 @end

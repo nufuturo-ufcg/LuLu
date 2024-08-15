@@ -12,18 +12,23 @@
 @import OSLog;
 @import Foundation;
 
+typedef NS_ENUM(NSUInteger, LogLevel) {
+    LOG_INFO,
+    LOG_DEBUG,
+    LOG_ERROR
+};
+
 @protocol LogHandler <NSObject>
 
 /* METHODS */
 
--(void)logDebug:(NSDictionary*)infos;
+-(void)logDebug;
 
--(void)logInfo:(NSDictionary*)infos;
+-(void)logInfo;
 
--(void)logError:(NSDictionary*)infos;
+-(void)logError;
 
-
--(void)commitLog;
+-(void)commitLog:(LogLevel)level;
     
 @end
 

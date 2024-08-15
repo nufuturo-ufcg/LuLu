@@ -6,6 +6,8 @@
 //  Copyright © 2024 Objective-See. All rights reserved.
 //
 
+#import "consts.h"
+
 #import <Foundation/Foundation.h>
 #import "ConnectionLogHandler.h"
 
@@ -28,17 +30,28 @@ NSString* flowUUID = nil;
     return self;
 }
 
-- (void)logDebug:(NSDictionary *)infos {
+- (void)logDebug {
+    os_log_debug(logHandle, "LOGGING DEBUG");
 }
 
-- (void)logError:(NSDictionary *)infos {
+- (void)logError {
+    os_log_error(logHandle, "LOGGING ERROR");
 }
 
-- (void)logInfo:(NSDictionary *)infos {
+- (void)logInfo {
     os_log_info(logHandle, "CATEGORY=connection, FLOW_ID=%{public}@, ENDPOINT=%{public}@, DIRECTION=%ld, PROTOCOL=%ld, ACTION=%d", self.flowUUID, self.remoteEndpoint, self.direction, (long)self.socketFlow.direction, self.action);
 }
 
-- (void)commitLog {
+- (void)commitLog:(LogLevel)level {
+    if (level == LOG_INFO) {
+        [self logInfo];
+    } 
+    else if (level == LOG_DEBUG) {
+        [self logDebug];
+    } 
+    else if (level == LOG_ERROR) {
+        [self logError];
+    }
 }
 
 @end

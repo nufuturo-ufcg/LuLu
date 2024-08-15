@@ -16,6 +16,7 @@
 #import "Preferences.h"
 #import "XPCUserProto.h"
 #import "FilterDataProvider.h"
+#import "ConnectionLogHandler.h"
 
 /* GLOBALS */
 
@@ -34,11 +35,13 @@ extern Preferences* preferences;
 //block list
 extern BlockList* blockList;
 
+//extern ConnectionLogHandler* logger;
 
 @implementation FilterDataProvider
 
 @synthesize cache;
 @synthesize grayList;
+@synthesize logger;
 
 //init
 -(id)init
@@ -58,6 +61,8 @@ extern BlockList* blockList;
         
         //alloc related flows
         self.relatedFlows = [NSMutableDictionary dictionary];
+        
+        self.logger = [[ConnectionLogHandler alloc] init];
         
     }
     
@@ -211,6 +216,9 @@ extern BlockList* blockList;
     
     //log msg
     os_log_info(logHandle, "FLOW_ID=%{public}@ verdict: %{public}@", flowUUID, verdict);
+    
+    os_log_info(logHandle, "logando o connection handler");
+    [logger commitLog:LOG_INFO];
     
 bail:
         
