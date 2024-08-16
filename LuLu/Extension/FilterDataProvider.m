@@ -160,8 +160,8 @@ extern BlockList* blockList;
         //dbg msg
         os_log_info(logHandle, "FLOW_ID=%{public}@ no prefs (yet) || disabled, so allowing flow", flowUUID);
         
-        //bail
-        goto bail;
+        //return default value
+        return verdict;
     }
     
     //typecast
@@ -196,8 +196,8 @@ extern BlockList* blockList;
         //log msg
         os_log_info(logHandle, "FLOW_ID=%{public}@ ignoring non-outbound traffic (direction: %ld)", flowUUID, (long)socketFlow.direction);
            
-        //bail
-        goto bail;
+        //return default value
+        return verdict;
     }
     
     //process flow
@@ -207,8 +207,6 @@ extern BlockList* blockList;
     
     //log msg
     os_log_info(logHandle, "FLOW_ID=%{public}@ verdict: %{public}@", flowUUID, verdict);
-    
-bail:
         
     return verdict;
 }
@@ -283,8 +281,8 @@ bail:
         //err msg
         os_log_error(logHandle, "FLOW_ID=%{public}@ ERROR: failed to create process for flow, will allow", flowUUID);
         
-        //bail
-        goto bail;
+        //return default value
+        return verdict;
     }
         
     //(now), broadcast notification
@@ -303,8 +301,8 @@ bail:
         //dbg msg
         os_log_info(logHandle, "FLOW_ID=%{public}@ current console user '%{public}@', is different than '%{public}@', so allowing flow: %{public}@", flowUUID, consoleUser, alerts.consoleUser, ((NEFilterSocketFlow*)flow).remoteEndpoint);
         
-        //all set
-        goto bail;
+        //return default value
+        return verdict;
     }
     
     //CHECK:
@@ -318,7 +316,7 @@ bail:
         verdict = [NEFilterNewFlowVerdict dropVerdict];
         
         //all set
-        goto bail;
+        return verdict;
     }
         
     //CHECK:
@@ -339,10 +337,13 @@ bail:
             verdict = [NEFilterNewFlowVerdict dropVerdict];
             
             //all set
-            goto bail;
+            return verdict;
         }
         //dbg msg
-        else os_log_info(logHandle, "FLOW_ID=%{public}@ remote endpoint/URL not on block list...", flowUUID);
+        else 
+        {
+            os_log_info(logHandle, "FLOW_ID=%{public}@ remote endpoint/URL not on block list...", flowUUID);
+        }
     }
         
     //CHECK:
@@ -367,10 +368,12 @@ bail:
             verdict = [NEFilterNewFlowVerdict dropVerdict];
         }
         //allow (msg)
-        else os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule says: ALLOW", flowUUID, matchingRule.uuid);
-    
-        //all set
-        goto bail;
+        else 
+        {
+            os_log_info(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ rule says: ALLOW", flowUUID, matchingRule.uuid);
+        }
+
+        return verdict;
     }
 
     /* NO MATCHING RULE FOUND */
@@ -408,8 +411,8 @@ bail:
                 socketFlow.direction,
                 ((NEFilterSocketFlow*)flow).socketProtocol);
 
-        //all set
-        goto bail;
+        //return default value
+        return verdict;
     }
     
     //dbg msg
@@ -429,8 +432,7 @@ bail:
         //pause
         verdict = [NEFilterNewFlowVerdict pauseVerdict];
         
-        //bail
-        goto bail;
+        return verdict;
     }
     
     //dbg msg
@@ -483,8 +485,8 @@ bail:
                     //err msg
                     os_log_error(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ ERROR: failed to add rule", flowUUID, newRule.uuid);
                     
-                    //bail
-                    goto bail;
+                    //return default value
+                    return verdict;
                 }
                 
                 //tell user rules changed
@@ -505,8 +507,7 @@ bail:
                 [self alert:(NEFilterSocketFlow*)flow process:process csChange:NO];
             }
             
-            //all set
-            goto bail;
+            return verdict;
             
         } //signed by apple
     }
@@ -562,15 +563,13 @@ bail:
                 //err msg
                 os_log_error(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ ERROR: failed to add rule for %{public}@", flowUUID, newRule.uuid, info[KEY_PATH]);
                  
-                //bail
-                goto bail;
+                return verdict;
             }
             
             //tell user rules changed
             [alerts.xpcUserClient rulesChanged];
             
-            //all set
-            goto bail;
+            return verdict;
         }
     }
     
@@ -591,8 +590,7 @@ bail:
             //allow
             verdict = [NEFilterNewFlowVerdict allowVerdict];
             
-            //done
-            goto bail;
+            return verdict;
         }
     }
     
@@ -611,8 +609,7 @@ bail:
             //allow
             verdict = [NEFilterNewFlowVerdict allowVerdict];
             
-            //done
-            goto bail;
+            return verdict;
         }
     }
     
@@ -639,15 +636,13 @@ bail:
             //err msg
             os_log_error(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ ERROR: failed to add rule for %{public}@", flowUUID, newRule.uuid, info[KEY_PATH]);
              
-            //bail
-            goto bail;
+            return verdict;
         }
         
         //tell user rules changed
         [alerts.xpcUserClient rulesChanged];
         
-        //all set
-        goto bail;
+        return verdict;
     }
     
     // socket protocol follow IANA format.
@@ -663,10 +658,7 @@ bail:
     //create/deliver alert
     // note: handles response + next/any related flow
     [self alert:(NEFilterSocketFlow*)flow process:process csChange:csChange];
-    
-bail:
-    
-    
+        
     //;} //pool
     
     return verdict;
@@ -813,8 +805,6 @@ bail:
             }
         }
     }
-   
-bail:
 
     return;
 }
@@ -838,8 +828,7 @@ bail:
         //err msg
         os_log_error(logHandle, "FLOW_ID=%{public}@ ERROR: failed to create process for %d", flow.identifier.UUIDString, audit_token_to_pid(*token));
         
-        //bail
-        goto bail;
+        return process;
     }
     
     //sync to add to cache
@@ -848,8 +837,6 @@ bail:
         //add to cache
         [self.cache setObject:process forKey:flow.sourceAppAuditToken];
     }
-    
-bail:
     
     return process;
 }
