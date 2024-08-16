@@ -5,7 +5,7 @@
 //
 //  created by Patrick Wardle
 //  copyright (c) 2017 Objective-See. All rights reserved.
-//
+// 
 
 #import "consts.h"
 
@@ -134,8 +134,8 @@ extern Preferences* preferences;
             //err msg
             os_log_error(logHandle, "ERROR: failed to generate default rules");
             
-            //bail
-            goto bail;
+            //return default value
+            return prepared;
         }
         
         //dbg msg
@@ -144,8 +144,6 @@ extern Preferences* preferences;
     
     //happy
     prepared = YES;
-
-bail:
     
     return prepared;
 }
@@ -230,14 +228,12 @@ bail:
         //err msg
         os_log_error(logHandle, "ERROR: failed to save v1 -> v2 rules");
         
-        //bail
-        goto bail;
+        //return default value
+        return upgraded;
     }
     
     //happy
     upgraded = YES;
-    
-bail:
     
     return upgraded;
 }
@@ -270,8 +266,8 @@ bail:
         //err msg
         os_log_error(logHandle, "ERROR: failed to load rules from %{public}@", RULES_FILE);
         
-        //bail
-        goto bail;
+        //return default value
+        return result;
     }
     
     //unarchive
@@ -282,8 +278,8 @@ bail:
         //err msg
         os_log_error(logHandle, "ERROR: failed to unarchive rules from %{public}@ (%{public}@)", RULES_FILE, error);
         
-        //bail
-        goto bail;
+        //return default value
+        return result;
     }
     
     //dbg msg
@@ -291,8 +287,6 @@ bail:
     
     //happy
     result = YES;
-    
-bail:
     
     return result;
 }
@@ -394,16 +388,12 @@ bail:
         //err msg
         os_log_error(logHandle, "ERROR: failed to save (generated) rules");
         
-        //bail
-        goto bail;
+        //return default value
+        return generated;
     }
-
-    
 
     //happy
     generated = YES;
-    
-bail:
     
     return generated;
 }
@@ -466,7 +456,6 @@ bail:
         
     }] resume];
     
-bail:
 
     //wait for request to complete
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
@@ -491,8 +480,8 @@ bail:
         //err msg
         os_log_error(logHandle, "ERROR: can't add nil rule");
         
-        //bail
-        goto bail;
+        //return default value
+        return added;
     }
     
     //sync to access
@@ -530,8 +519,8 @@ bail:
             //err msg
             os_log_error(logHandle, "RULE_ID=%{public}@ ERROR: failed to save rules", rule.uuid);
             
-            //bail
-            goto bail;
+            //return default value
+            return added;
         }
         
         //dbg msg
@@ -540,8 +529,6 @@ bail:
     
     //happy
     added = YES;
-    
-bail:
     
     return added;
 }
@@ -634,8 +621,8 @@ bail:
                 //err msg
                 os_log_error(logHandle, "FLOW_ID=%{public}@ ERROR: code signing mismatch: %{public}@ / %{public}@", flowUUID, process.csInfo, csInfo);
                 
-                //bail
-                goto bail;
+                //return default value
+                return nil;
             }
             
             //extract item rules
@@ -678,8 +665,8 @@ bail:
             (nil == globalRules) &&
             (0 == directoryRules.count) )
         {
-            //no match
-            goto bail;
+            //return default value
+            return nil;
         }
         
         //init candidate rules
@@ -807,8 +794,6 @@ bail:
         else if (nil != anyMatch) matchingRule = anyMatch;
     
     }//sync
-        
-bail:
     
     return matchingRule;
 }
@@ -884,8 +869,8 @@ bail:
             //err msg
             os_log_error(logHandle, "FLOW_ID=%{public}@ RULE_ID=%{public}@ ERROR: failed to created regex from %{public}@ (error: %{public}@)", flowUUID, rule.uuid, rule.endpointAddr, error);
             
-            //bail
-            goto bail;
+            //return default value
+            return isMatch;
         }
         
         //check each
@@ -900,8 +885,7 @@ bail:
                 //match
                 isMatch = YES;
                 
-                //bail
-                goto bail;
+                return isMatch;
             }
         }
     }
@@ -947,8 +931,7 @@ bail:
                 //match
                 isMatch = YES;
                 
-                //bail
-                goto bail;
+                return isMatch;
             }
             
             //dbg msg
@@ -979,14 +962,11 @@ bail:
                     //match
                     isMatch = YES;
                     
-                    //bail
-                    goto bail;
+                    return isMatch;
                 }
             }
         }
     }
-    
-bail:
         
     return isMatch;
 }
@@ -1015,51 +995,47 @@ bail:
             
             //happy
             result = YES;
-            
-            //done
-            goto bail;
         }
-        
-        //find matching rule
-        [self.rules[key][KEY_RULES] enumerateObjectsUsingBlock:^(Rule* currentRule, NSUInteger index, BOOL* stop)
+        else
         {
-            //is match?
-            if(YES == [currentRule.uuid isEqualToString:uuid])
+            //find matching rule
+            [self.rules[key][KEY_RULES] enumerateObjectsUsingBlock:^(Rule* currentRule, NSUInteger index, BOOL* stop)
             {
-                //save index
-                ruleIndex = index;
-            
-                //stop
-                *stop = YES;
-            }
-        }];
-        
-        //dbg msg
-        os_log_debug(logHandle, "found rule at index: %lu", (unsigned long)ruleIndex);
-        
-        //remove
-        if(-1 != ruleIndex)
-        {
-            //remove
-            [self.rules[key][KEY_RULES] removeObjectAtIndex:ruleIndex];
-            
-            //last (item) rule?
-            if(0 == ((NSMutableArray*)self.rules[key][KEY_RULES]).count)
-            {
-                //dbg msg
-                os_log_debug(logHandle, "rule was only/last one for %{public}@, so removing item entry", key);
+                //is match?
+                if(YES == [currentRule.uuid isEqualToString:uuid])
+                {
+                    //save index
+                    ruleIndex = index;
                 
-                //remove process
-                [self.rules removeObjectForKey:key];
+                    //stop
+                    *stop = YES;
+                }
+            }];
+            
+            //dbg msg
+            os_log_debug(logHandle, "found rule at index: %lu", (unsigned long)ruleIndex);
+            
+            //remove
+            if(-1 != ruleIndex)
+            {
+                //remove
+                [self.rules[key][KEY_RULES] removeObjectAtIndex:ruleIndex];
+                
+                //last (item) rule?
+                if(0 == ((NSMutableArray*)self.rules[key][KEY_RULES]).count)
+                {
+                    //dbg msg
+                    os_log_debug(logHandle, "rule was only/last one for %{public}@, so removing item entry", key);
+                    
+                    //remove process
+                    [self.rules removeObjectForKey:key];
+                }
+
+                //happy
+                result = YES;
             }
         }
-        
     } //sync
-        
-    //happy
-    result = YES;
-    
-bail:
     
     //always save to disk
     if(YES != [self save])
@@ -1155,8 +1131,8 @@ bail:
             //err msg
             os_log_error(logHandle, "ERROR: failed to serialize rules: %{public}@", error);
                 
-            //bail
-            goto bail;
+            //return default value
+            return result;
         }
         
         //dbg msg
@@ -1168,16 +1144,14 @@ bail:
             //err msg
             os_log_error(logHandle, "ERROR: failed to save archived rules to: %{public}@", rulesFile);
             
-            //bail
-            goto bail;
+            //return default value
+            return result;
         }
         
     } //sync
     
     //happy
     result = YES;
-    
-bail:
     
     return result;
 }
@@ -1202,7 +1176,9 @@ bail:
     {
         //err msg
         os_log_error(logHandle, "ERROR: imported rules are not a NSData");
-        goto bail;
+        
+        //return default value
+        return result;
     }
     
     //unarchive
@@ -1214,7 +1190,9 @@ bail:
     {
         //err msg
         os_log_error(logHandle, "ERROR: failed to unarchive (imported) rules (error: %{public}@)", error);
-        goto bail;
+        
+        //return default value
+        return result;
     }
     
     //dbg msg
@@ -1233,16 +1211,14 @@ bail:
         //err msg
         os_log_error(logHandle, "ERROR: failed to save (imported) rules");
         
-        //bail
-        goto bail;
+        //return default value
+        return result;
     }
     
     os_log_debug(logHandle, "saved (imported) rules");
     
     //happy
     result = YES;
-    
-bail:
     
     return result;
 }
@@ -1314,8 +1290,6 @@ bail:
     
     //dbg msg
     os_log_debug(logHandle, "cleaned up/deleted %ld rules", (long)deletedRules);
-    
-bail:
     
     //always save to disk
     if(YES != [self save])
