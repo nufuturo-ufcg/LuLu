@@ -1,0 +1,1532 @@
+{
+    "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper": [
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "uuid": "0d161440-dbcb-4f4b-afad-757844512f25",
+            "path": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "name": "com.apple.Safari.SearchHelper",
+            "endpointAddr": "200.155.60.10",
+            "endpointPort": "53.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "uuid": "1012067b-5695-4eb3-9afa-477c387ff40b",
+            "path": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "name": "com.apple.Safari.SearchHelper",
+            "endpointAddr": "142.250.218.174",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "uuid": "5b5c8b1c-17d6-4cea-9c9b-cd09f4501afc",
+            "path": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "name": "com.apple.Safari.SearchHelper",
+            "endpointAddr": "192.229.194.11",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "uuid": "7621d827-d369-4532-9936-c31205f040da",
+            "path": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "name": "com.apple.Safari.SearchHelper",
+            "endpointAddr": "192.168.0.1",
+            "endpointPort": "53.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "uuid": "96a50af2-8a89-47e7-8c0f-0c0bac012484",
+            "path": "/System/Volumes/Preboot/Cryptexes/Incoming/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc/Contents/MacOS/com.apple.Safari.SearchHelper",
+            "name": "com.apple.Safari.SearchHelper",
+            "endpointAddr": "142.250.218.3",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking": [
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "06146f71-7ac1-4da4-bda1-4571e96bd29d",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "64.233.190.156",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "44cec10c-fd91-4295-a1b6-c2590ce84227",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "142.251.129.37",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "cbb0ad44-33a4-4b84-8767-9339a5888d13",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "23.45.157.229",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "e6382973-1909-4e49-85fa-0cb0ae2e018c",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "142.251.129.46",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "168371ff-5422-467d-aa04-a124ef9eed97",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "142.251.129.238",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "6cc2cc6c-0efb-4159-be94-c10db0bd6a61",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "142.250.218.10",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "451a81a2-69c6-4d5f-a418-2dd0e2802acb",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "142.250.0.84",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "a13fc476-8ade-42ba-b868-6b64c884fdce",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "52.97.78.146",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "10387d03-58ae-4c38-8189-e8a4912b7c69",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "142.251.132.238",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "4271a4b8-09d1-4af0-9c29-81eeb1222751",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "142.250.79.202",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "uuid": "66144c2e-46ad-4eaa-baec-4960f669278d",
+            "path": "/System/Volumes/Preboot/Cryptexes/App/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+            "name": "com.apple.WebKit.Networking",
+            "endpointAddr": "172.217.28.14",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service": [
+        {
+            "key": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service",
+            "uuid": "f800ad03-d161-4903-a308-5cd73df1ca38",
+            "path": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service",
+            "name": "com.apple.Safari.SafeBrowsing.Service",
+            "endpointAddr": "10.101.231.53",
+            "endpointPort": "53.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service",
+            "uuid": "6bd991f5-2cf3-4963-b175-8bc3462bbfd7",
+            "path": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service",
+            "name": "com.apple.Safari.SafeBrowsing.Service",
+            "endpointAddr": "10.101.231.53",
+            "endpointPort": "53.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/Library/Apple/System/Library/CoreServices/SafariSupport.bundle/Contents/MacOS/PasswordBreachAgent": [
+        {
+            "key": "/Library/Apple/System/Library/CoreServices/SafariSupport.bundle/Contents/MacOS/PasswordBreachAgent",
+            "uuid": "793daba8-f88d-4e04-9c94-468f8f23cd56",
+            "path": "/Library/Apple/System/Library/CoreServices/SafariSupport.bundle/Contents/MacOS/PasswordBreachAgent",
+            "name": "PasswordBreachAgent",
+            "endpointAddr": "23.41.188.23",
+            "endpointPort": "443.0",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Applications/Messages.app/Contents/MacOS/Messages": [
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "c2f1e011-3a87-4ef5-bfc3-04599cf49dc2",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "1.0.0.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "a0b91e69-859c-4d3a-8a3f-54a997d6d9fd",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "192.168.0.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "46956040-6768-46a8-8bbe-1d59e07a4f83",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "75.75.75.75",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "2943647d-aa15-4834-b949-a2f41812e1a8",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "8.8.8.8",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "d10f3bab-86c4-4b64-a171-8f43e1e6c37e",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "8.8.8.8",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "410c2661-7c05-41bd-89ee-7cdcc7b2af95",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "192.168.32.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "3cd34228-220a-4a0c-a3eb-afb05fe63b91",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "192.168.86.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "ab740f64-771b-4d05-b23a-b04ad161b0ff",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "192.168.1.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "uuid": "3e6a5fde-4795-4f23-9ff7-432b48888d2a",
+            "path": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+            "name": "Messages",
+            "endpointAddr": "192.168.1.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Applications/Maps.app/Contents/MacOS/Maps": [
+        {
+            "key": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+            "uuid": "89102882-de7b-433e-bbc9-7ef5e1f50e50",
+            "path": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+            "name": "Maps",
+            "endpointAddr": "2.20.196.58",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+            "uuid": "01d19cdf-925e-42ce-bb69-4e00083017b8",
+            "path": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+            "name": "Maps",
+            "endpointAddr": "23.54.23.161",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+            "uuid": "467b8218-b0de-421f-a3aa-8345f7a0d8da",
+            "path": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+            "name": "Maps",
+            "endpointAddr": "17.253.7.75",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+            "uuid": "063daf2d-be24-4969-90df-3f856f862f02",
+            "path": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+            "name": "Maps",
+            "endpointAddr": "88.221.0.118",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Library/CoreServices/mapspushd": [
+        {
+            "key": "/System/Library/CoreServices/mapspushd",
+            "uuid": "fa1f6214-a9b3-4724-a51b-db07b2772b37",
+            "path": "/System/Library/CoreServices/mapspushd",
+            "name": "mapspushd",
+            "endpointAddr": "17.56.140.27",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/mapspushd",
+            "uuid": "6489cf10-7c0b-4521-99ac-7b0d5c1ad247",
+            "path": "/System/Library/CoreServices/mapspushd",
+            "name": "mapspushd",
+            "endpointAddr": "23.41.188.242",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Applications/Mail.app/Contents/MacOS/Mail": [
+        {
+            "key": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "uuid": "e6a13202-16f0-4723-81ff-e8af2db9e898",
+            "path": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "name": "Mail",
+            "endpointAddr": "142.250.0.109",
+            "endpointPort": "993",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "uuid": "9293c581-9e71-4de9-ab14-eb31e010990c",
+            "path": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "name": "Mail",
+            "endpointAddr": "142.250.114.108",
+            "endpointPort": "993",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "uuid": "ab76cbef-acbe-4d68-b61d-4d1ce0cb7ba6",
+            "path": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "name": "Mail",
+            "endpointAddr": "142.250.123.109",
+            "endpointPort": "993",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "uuid": "417030b3-8608-44c0-ae1c-2749ef0b30ab",
+            "path": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "name": "Mail",
+            "endpointAddr": "142.251.0.108",
+            "endpointPort": "993",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "uuid": "70a8b9f4-9966-4907-921c-976265beabca",
+            "path": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "name": "Mail",
+            "endpointAddr": "64.233.186.109",
+            "endpointPort": "993",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "uuid": "8ba81c6b-d806-4660-a0fc-4b92ae9bd0ec",
+            "path": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "name": "Mail",
+            "endpointAddr": "142.250.0.108",
+            "endpointPort": "993",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "uuid": "1acf9c93-bba8-4a5e-8ae8-a65a10fa8146",
+            "path": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+            "name": "Mail",
+            "endpointAddr": "64.233.190.109",
+            "endpointPort": "993",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Applications/Photos.app/Contents/MacOS/Photos": [
+        {
+            "key": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+            "uuid": "c1aca28d-f7d5-4f7b-9c71-4a5ede4eb345",
+            "path": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+            "name": "Photos",
+            "endpointAddr": "17.250.98.71",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+            "uuid": "49f11ff8-a22f-4f91-808a-237090495f6e",
+            "path": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+            "name": "Photos",
+            "endpointAddr": "17.248.201.38",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+            "uuid": "def876a0-e3b7-4a10-8205-4977d54fee36",
+            "path": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+            "name": "Photos",
+            "endpointAddr": "100.100.100.100",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+            "uuid": "45a301f1-b960-4d98-89b5-2ec3f8a43f5e",
+            "path": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+            "name": "Photos",
+            "endpointAddr": "192.168.1.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Applications/App Store.app/Contents/MacOS/App Store": [
+        {
+            "key": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "uuid": "35fa8336-64df-4123-8836-3c185874bc31",
+            "path": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "name": "App Store",
+            "endpointAddr": "23.55.204.23",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "uuid": "c1f604d4-2c5f-4c1c-863c-b38d7f70f178",
+            "path": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "name": "App Store",
+            "endpointAddr": "23.220.132.24",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "uuid": "cff06214-574c-43ee-91f5-ea88ffb83e01",
+            "path": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "name": "App Store",
+            "endpointAddr": "23.220.137.211",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "uuid": "98131481-1e1e-4b8a-9064-ef5cf0889a60",
+            "path": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "name": "App Store",
+            "endpointAddr": "17.8.154.56",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "uuid": "8289d51c-b282-4239-a191-06e46f61ba0f",
+            "path": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "name": "App Store",
+            "endpointAddr": "192.168.1.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "uuid": "3b945d8c-21d8-44de-be19-2070bb7bf2f5",
+            "path": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "name": "App Store",
+            "endpointAddr": "23.220.137.211",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "uuid": "51aa08a8-ab33-4933-9103-4590b9286d91",
+            "path": "/System/Applications/App Store.app/Contents/MacOS/App Store",
+            "name": "App Store",
+            "endpointAddr": "23.55.204.23",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Applications/Music.app/Contents/MacOS/Music": [
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "6f8f619e-3240-4aaa-b3ce-896a7cb8f107",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "17.36.202.136",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "de45dc13-e2d2-4bb7-8901-4c41d575745e",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "2.19.172.70",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "2f2c5ab9-eea8-4f3b-9b88-146450b65cb9",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "189.216.34.248",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "4c93dfb2-40ac-4f2e-ac33-b29a1898cb82",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "2.20.20.26",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "c01e3483-8a5e-4e97-80bb-dc0edf1c530e",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "23.201.216.27",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "ca9fd412-c97d-4806-99ba-d041da994000",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "192.168.15.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "8144dc90-b0e3-40a0-9952-8170afddd36b",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "172.20.0.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "0ab033ca-4a18-4d0d-a4ed-fefd9805f8a3",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "17.36.202.137",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "uuid": "efca8fe8-5d27-4cc1-9e19-3f95b53eaf57",
+            "path": "/System/Applications/Music.app/Contents/MacOS/Music",
+            "name": "Music",
+            "endpointAddr": "184.84.144.26",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder": [
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "8ffe44df-530e-4c8a-97fc-07dc27a48ef6",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "192.168.1.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "33ccec1e-4de7-49c2-9394-ae15cda6a62b",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "172.16.27.30",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "3d636abc-12a7-4fbc-92c7-f237fce1081f",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "192.168.40.1",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "fbb2dc81-07c5-4e94-84aa-5f91db1ee53c",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "181.213.132.3",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "b457ff3a-595a-4f08-919d-a83b93f760a1",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "8.8.8.8",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "55d19032-2db6-4700-a016-f86668ac2d65",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "192.168.1.254",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "e4a6a95c-7ea8-4471-892e-ca7beca3774e",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "192.168.1.254",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "be2e72e2-efe5-4eed-a7a7-28f62f984d22",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "192.168.1.254",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "uuid": "1a95db45-531d-4cf2-b079-d7a739147bf7",
+            "path": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder",
+            "name": "Finder",
+            "endpointAddr": "10.101.231.53",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary": [
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "fe51e91f-6bed-4df9-86c7-54ccb30ac2cf",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "91a3870a-601f-4efb-bc92-b1eb787e1a65",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "3d53f6ff-a712-4063-a2af-f8d6dd4abb5a",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "178a2a4a-3eb2-45d9-a1f2-fe8c34973ec8",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "626fac84-9dee-4910-adda-342db57f2659",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "2f772dc2-5154-4a6a-b546-f6298d002e39",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.24.58.147",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "5ba2a06c-020b-42f9-9df2-95227ebe18b7",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "5dc2ca74-c6e3-43d1-ba11-8f8fef1e117d",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "11fddd86-fb41-46d5-8def-e3be33176e69",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "f2bcff53-2b4b-4dbf-9e11-5653f9a97e83",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "1d54da83-aedc-43ec-9797-c2ab0307c240",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "10.251.231.53",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "c72def84-1962-44b5-911f-eedbddce593e",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "71ec8051-00b1-4c36-b472-2942d9b20608",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "1ebfb432-22ec-4322-bff5-692519d6e6ed",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "03f0a70e-5520-4fb8-8544-9dc803abc405",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "008c5bcd-a514-4d30-838e-c32d8944e848",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "23.208.51.64",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "188ae2d6-d896-4c94-a460-79efbb531614",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "184.85.135.190",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "9e883d2a-02e8-4649-adb6-f7310870fa83",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "23.216.165.114",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "56b2827c-522f-42fc-8a70-0fccc74e38a9",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "104.112.142.50",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "ea73cccf-75c9-4e56-90ae-dd4d3cfae43e",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "104.87.45.145",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "uuid": "ca5b0fb0-7f90-40ff-b7b7-30b69a21f297",
+            "path": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary",
+            "name": "Dictionary",
+            "endpointAddr": "104.87.45.145",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent": [
+        {
+            "key": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "uuid": "f21e2abf-8555-4617-bbfd-3c507e6f29c6",
+            "path": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "name": "CalendarAgent",
+            "endpointAddr": "17.248.201.68",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "uuid": "fb2db8db-c830-4a4a-94b3-d0e97651ce08",
+            "path": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "name": "CalendarAgent",
+            "endpointAddr": "17.248.201.67",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "uuid": "89f32fa4-ec22-4407-9796-a340bb685703",
+            "path": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "name": "CalendarAgent",
+            "endpointAddr": "17.248.201.71",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "uuid": "5df600c6-adf5-466e-a1da-406bf1f353d6",
+            "path": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "name": "CalendarAgent",
+            "endpointAddr": "17.248.201.67",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "uuid": "7f068434-d9eb-4e5c-83c2-f9d2ff296ce5",
+            "path": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "name": "CalendarAgent",
+            "endpointAddr": "17.248.201.68",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "uuid": "59ce9f67-7de1-4b6e-8f1f-ba0ac6bf7a37",
+            "path": "/System/Library/PrivateFrameworks/CalendarAgent.framework/Executables/CalendarAgent",
+            "name": "CalendarAgent",
+            "endpointAddr": "17.248.201.73",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ],
+    "/System/Applications/Calendar.app/Contents/MacOS/Calendar": [
+        {
+            "key": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+            "uuid": "8385f1ca-56d4-434c-b074-99c2b2305db4",
+            "path": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+            "name": "Calendar",
+            "endpointAddr": "172.253.63.95",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+            "uuid": "a1a08475-50db-40a0-b423-fce533a0b69c",
+            "path": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+            "name": "Calendar",
+            "endpointAddr": "142.251.163.95",
+            "endpointPort": "443",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        },
+        {
+            "key": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+            "uuid": "3345238b-5b48-495a-95f2-dd79282d66cb",
+            "path": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+            "name": "Calendar",
+            "endpointAddr": "10.252.231.53",
+            "endpointPort": "53",
+            "isEndpointAddrRegex": "0",
+            "type": "1",
+            "scope": "0",
+            "action": "1",
+            "csInfo": {
+                "signatureIdentifier": ""
+            }
+        }
+    ]
+}
