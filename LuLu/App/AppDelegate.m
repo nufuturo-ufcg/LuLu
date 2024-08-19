@@ -18,12 +18,18 @@
 
 //log handle
 extern os_log_t logHandle;
+extern BOOL headlessMode;
 
 //alert windows
 NSMutableDictionary* alerts = nil;
 
 //xpc for daemon comms
 XPCDaemonClient* xpcDaemonClient = nil;
+
+#define CHECK_HEADLESS_MODE() if (headlessMode) { 	\
+    os_log_debug(logHandle, "Running in headless mode. Skipping UI \ initialization."); \
+    return; \
+} \
 
 @interface AppDelegate ()
 
@@ -106,6 +112,7 @@ XPCDaemonClient* xpcDaemonClient = nil;
     // ...will call back here to complete initializations
     if(YES == [self isFirstTime])
     {
+        CHECK_HEADLESS_MODE();
         //dbg msg
         os_log_debug(logHandle, "first launch, will kick off welcome window(s)");
         
@@ -140,6 +147,7 @@ XPCDaemonClient* xpcDaemonClient = nil;
         // show startup msg....
         if(YES == launchedByUser())
         {
+            CHECK_HEADLESS_MODE();
             //dbg msg
             os_log_debug(logHandle, "showing startup window...");
             
@@ -362,6 +370,7 @@ bail:
 {
     //dbg msg
     os_log_debug(logHandle, "method '%s' invoked", __PRETTY_FUNCTION__);
+    CHECK_HEADLESS_MODE();
     
     //alloc rules window controller
     if(nil == self.rulesWindowController)
@@ -385,6 +394,7 @@ bail:
 {
     //dbg msg
     os_log_debug(logHandle, "method '%s' invoked", __PRETTY_FUNCTION__);
+    CHECK_HEADLESS_MODE();
     
     //alloc prefs window controller
     if(nil == self.prefsWindowController)
@@ -405,6 +415,7 @@ bail:
 {
     //dbg msg
     os_log_debug(logHandle, "method '%s' invoked", __PRETTY_FUNCTION__);
+    CHECK_HEADLESS_MODE();
     
     //alloc/init settings window
     if(nil == self.aboutWindowController)
@@ -472,6 +483,7 @@ bail:
 //make a window control/window front/active
 -(void)makeActive:(NSWindowController*)windowController
 {
+    CHECK_HEADLESS_MODE();
     //make foreground
     [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
     
@@ -691,6 +703,7 @@ bail:
                 //dbg msg
                 os_log_debug(logHandle, "a new version (%@) is available", newVersion);
 
+                CHECK_HEADLESS_MODE();
                 //alloc update window
                 self.updateWindowController = [[UpdateWindowController alloc] initWithWindowNibName:@"UpdateWindow"];
                 
