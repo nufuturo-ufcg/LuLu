@@ -14,14 +14,12 @@
 
 @implementation CortexLogsTests
 
-// Método auxiliar para simular o mapeamento do CSV para JSON
-- (NSDictionary *)mapCSVLineToJSON:(NSString *)csvLine {
-    NSArray *fields = [csvLine componentsSeparatedByString:@"\t"];
 
-    // Exemplo de mapeamento.
+- (NSDictionary *)mapCSVLineToJSON:(NSString *)csvLine {
+    NSArray *fields = [csvLine componentsSeparatedByString:@","];
     NSString *key = fields[0];
     NSString *uuid = [[NSUUID UUID] UUIDString];
-    NSString *path = fields[1];
+    NSString *path = fields[0];
     NSString *name = fields[2];
     NSString *endpointAddr = fields[4];
     NSString *endpointPort = fields[6];
@@ -47,67 +45,110 @@
     };
 }
 
-// Teste para validar o mapeamento da chave 'key'
-- (void)testKeyMapping {
-    NSString *csvLine = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\t/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\tQuickTime Player\t64465\t142.250.218.74\toptimizationguide-pa.googleapis.com\t443\t1\tTRUE";
-
-    NSDictionary *json = [self mapCSVLineToJSON:csvLine];
-    NSString *expectedKey = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player";
+- (NSDictionary *)mapCSVLineToJSON:(NSString *)csvLine withHeaders:(NSArray<NSString *> *)headers {
+    NSArray *fields = [csvLine componentsSeparatedByString:@","];
+    NSMutableDictionary *json = [NSMutableDictionary dictionary];
     
-    XCTAssertTrue([json objectForKey:expectedKey] != nil, @"Key should be mapped correctly.");
+    for (NSUInteger i = 0; i < headers.count; i++) {
+        NSString *key = headers[i];
+        NSString *value = (i < fields.count) ? fields[i] : @"";
+        json[key] = value;
+    }
+    
+    return [json copy];
 }
 
-// Teste para validar o mapeamento de UUID
-- (void)testUUIDMapping {
-    NSString *csvLine = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\t/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\tQuickTime Player\t64465\t142.250.218.74\toptimizationguide-pa.googleapis.com\t443\t1\tTRUE";
+- (NSDictionary *)mapCSVLinesToJSON:(NSArray<NSString *> *)csvLines {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
 
-    NSDictionary *json = [self mapCSVLineToJSON:csvLine];
-    NSString *key = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player";
-    NSString *uuid = json[key][0][@"uuid"];
-    
-    NSUUID *testUUID = [[NSUUID alloc] initWithUUIDString:uuid];
-    XCTAssertNotNil(testUUID, @"UUID should be valid and correctly formatted.");
+    for (NSString *csvLine in csvLines) {
+        NSDictionary *mappedLine = [self mapCSVLineToJSON:csvLine];
+        NSString *key = mappedLine.allKeys.firstObject;
+
+        if (result[key]) {
+            NSMutableArray *existingValues = [result[key] mutableCopy];
+            [existingValues addObjectsFromArray:mappedLine[key]];
+            result[key] = [existingValues copy];
+        } else {
+            result[key] = mappedLine[key];
+        }
+    }
+
+    return [result copy];
 }
 
-// Teste para validar o mapeamento de endereço IP e porta
-- (void)testEndpointMapping {
-    NSString *csvLine = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\t/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\tQuickTime Player\t64465\t142.250.218.74\toptimizationguide-pa.googleapis.com\t443\t1\tTRUE";
+- (NSArray<NSString *> *)readCSVFromFilePath:(NSString *)filePath {
+    NSError *error = nil;
+    NSString *fileContents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        XCTFail(@"Failed to read CSV file: %@", error.localizedDescription);
+        return nil;
+    }
 
-    NSDictionary *json = [self mapCSVLineToJSON:csvLine];
-    NSString *key = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player";
-
-    NSString *expectedAddr = @"142.250.218.74";
-    NSString *expectedPort = @"443";
-    
-    XCTAssertEqualObjects(json[key][0][@"endpointAddr"], expectedAddr, @"Endpoint address should be mapped correctly.");
-    XCTAssertEqualObjects(json[key][0][@"endpointPort"], expectedPort, @"Endpoint port should be mapped correctly.");
+    NSArray *rows = [fileContents componentsSeparatedByString:@"\n"];
+    return rows;
 }
 
-// Teste para validar a presença do campo 'csInfo'
-- (void)testCsInfoMapping {
-    NSString *csvLine = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\t/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\tQuickTime Player\t64465\t142.250.218.74\toptimizationguide-pa.googleapis.com\t443\t1\tTRUE";
-
-    NSDictionary *json = [self mapCSVLineToJSON:csvLine];
-    NSString *key = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player";
-    NSDictionary *csInfo = json[key][0][@"csInfo"];
-
-    XCTAssertNotNil(csInfo, @"csInfo should be present in the JSON.");
-    XCTAssertEqualObjects(csInfo[@"signatureIdentifier"], @"", @"signatureIdentifier should be correctly mapped.");
+- (id)readJSONFromFilePath:(NSString *)filePath {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:filePath]) {
+        NSError *error = nil;
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        id resultData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        if (error == nil) {
+            return resultData;
+        } else {
+            XCTFail(@"Failed to parse JSON file: %@", error.localizedDescription);
+        }
+    } else {
+        XCTFail(@"JSON file does not exist at path: %@", filePath);
+    }
+    
+    return nil;
 }
 
-// Teste para validar que todos os atributos obrigatórios estão presentes
-- (void)testMandatoryAttributes {
-    NSString *csvLine = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\t/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player\tQuickTime Player\t64465\t142.250.218.74\toptimizationguide-pa.googleapis.com\t443\t1\tTRUE";
+- (void)validateMappingWithCSVLines:(NSArray<NSString *> *)csvLines expectedJSON:(NSDictionary *)expectedJSON {
+    NSDictionary *json = [self mapCSVLinesToJSON:csvLines];
 
-    NSDictionary *json = [self mapCSVLineToJSON:csvLine];
-    NSString *key = @"/System/Applications/QuickTime Player.app/Contents/MacOS/QuickTime Player";
+    for (NSString *key in expectedJSON) {
+        XCTAssertNotNil(json[key], @"Key %@ should be present in the JSON.", key);
 
-    NSDictionary *entry = json[key][0];
-    NSArray *mandatoryKeys = @[@"key", @"uuid", @"path", @"name", @"endpointAddr", @"endpointPort", @"isEndpointAddrRegex", @"type", @"scope", @"action", @"csInfo"];
+        NSArray *expectedEntries = expectedJSON[key];
+        NSArray *actualEntries = json[key];
+
+        XCTAssertEqual(expectedEntries.count, actualEntries.count, @"Number of entries for key %@ should match.", key);
+
+        for (NSUInteger i = 0; i < expectedEntries.count; i++) {
+            NSDictionary *expectedEntry = expectedEntries[i];
+            NSDictionary *actualEntry = actualEntries[i];
+
+            NSString *actualUUID = actualEntry[@"uuid"];
+            NSUUID *testUUID = [[NSUUID alloc] initWithUUIDString:actualUUID];
+            XCTAssertNotNil(testUUID, @"UUID should be valid and correctly formatted.");
+            
+            for (NSString *field in expectedEntry) {
+                if (![field isEqualToString:@"uuid"]) {
+                    XCTAssertEqualObjects(expectedEntry[field], actualEntry[field], @"Field %@ for key %@ should match.", field, key);
+                }
+            }
+        }
+    }
+}
+
+- (void)testMultipleCSVLinesMapping {
     
-    for (NSString *mandKey in mandatoryKeys) {
-        XCTAssertNotNil(entry[mandKey], @"Mandatory attribute %@ should be present in the JSON.", mandKey);
+    NSString *csvFilePath = @"/Users/ec2-user/Documents/Nufuturo/LuLu/LuLu/LuLuTests/Sample-data/100-sample-logs.csv";
+    NSString *jsonFilePath = @"/Users/ec2-user/Documents/Nufuturo/LuLu/LuLu/LuLuTests/Sample-data/100-sample-rules.json";
+
+    NSArray<NSString *> *csvLines = [self readCSVFromFilePath:csvFilePath];
+    NSDictionary *expectedJSON = [self readJSONFromFilePath:jsonFilePath];
+
+    if (csvLines && expectedJSON) {
+        [self validateMappingWithCSVLines:csvLines expectedJSON:expectedJSON];
     }
 }
 
 @end
+
