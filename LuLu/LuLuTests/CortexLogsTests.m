@@ -1,8 +1,9 @@
 //
-//  CortexLogsTests.m
-//  LuLuTests
+//  File: CortexLogsTests.m
+//  Project: App Firewall (nufuturo.lulu)
+//  Description: Validates rule structure created from cortex logs
 //
-//  Created by ec2-user on 16/08/2024.
+//  Created by com.nufuturo.lulu
 //  Copyright © 2024 Objective-See. All rights reserved.
 //
 
@@ -139,7 +140,7 @@
 
 - (void)testMultipleCSVLinesMapping {
     
-    NSString *csvFilePath = @"/Users/ec2-user/Documents/Nufuturo/LuLu/LuLu/LuLuTests/Sample-data/100-sample-logs.csv";
+    NSString *csvFilePath = @"/Users/ec2-user/Documents/Nufuturo/LuLu/LuLu/LuLuTests/Sample-data/100-sample-cortex-logs.csv";
     NSString *jsonFilePath = @"/Users/ec2-user/Documents/Nufuturo/LuLu/LuLu/LuLuTests/Sample-data/100-sample-rules.json";
 
     NSArray<NSString *> *csvLines = [self readCSVFromFilePath:csvFilePath];
