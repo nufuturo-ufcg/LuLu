@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57A45C7A2C6FA8720006B54D /* RuleIdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A45C792C6FA8720006B54D /* RuleIdTests.m */; };
+		57A45C7C2C6FA8920006B54D /* CortexLogsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A45C7B2C6FA8920006B54D /* CortexLogsTests.m */; };
+		57A45C7E2C6FCA900006B54D /* CortexLogsTestsII.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A45C7D2C6FCA900006B54D /* CortexLogsTestsII.m */; };
 		CD03F8F524F8E68300723BDC /* Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = CD03F8F324F8E68300723BDC /* Binary.m */; };
 		CD03F8F624F8E68300723BDC /* Process.m in Sources */ = {isa = PBXBuildFile; fileRef = CD03F8F424F8E68300723BDC /* Process.m */; };
 		CD21D37A252FE91E001A19A8 /* signing.m in Sources */ = {isa = PBXBuildFile; fileRef = CD21D379252FE91E001A19A8 /* signing.m */; };
@@ -74,6 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		57A45C742C6F9A0B0006B54D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDB2CC1024D61A4E00D0EECE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDB2CC1724D61A4E00D0EECE;
+			remoteInfo = LuLu;
+		};
 		CDB2CC3C24D61B3900D0EECE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CDB2CC1024D61A4E00D0EECE /* Project object */;
@@ -98,6 +108,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		57A45C702C6F9A0B0006B54D /* LuLuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuLuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57A45C792C6FA8720006B54D /* RuleIdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuleIdTests.m; sourceTree = "<group>"; };
+		57A45C7B2C6FA8920006B54D /* CortexLogsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CortexLogsTests.m; sourceTree = "<group>"; };
+		57A45C7D2C6FCA900006B54D /* CortexLogsTestsII.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CortexLogsTestsII.m; sourceTree = "<group>"; };
 		CD03F8F324F8E68300723BDC /* Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Binary.m; sourceTree = "<group>"; };
 		CD03F8F424F8E68300723BDC /* Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Process.m; sourceTree = "<group>"; };
 		CD03F8FA24F8E6BD00723BDC /* Binary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Binary.h; sourceTree = "<group>"; };
@@ -218,6 +232,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		57A45C6D2C6F9A0B0006B54D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDB2CC1524D61A4E00D0EECE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +259,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57A45C712C6F9A0B0006B54D /* LuLuTests */ = {
+			isa = PBXGroup;
+			children = (
+				57A45C7F2C73738A0006B54D /* Sample-data */,
+				57A45C792C6FA8720006B54D /* RuleIdTests.m */,
+				57A45C7B2C6FA8920006B54D /* CortexLogsTests.m */,
+				57A45C7D2C6FCA900006B54D /* CortexLogsTestsII.m */,
+			);
+			path = LuLuTests;
+			sourceTree = "<group>";
+		};
+		57A45C7F2C73738A0006B54D /* Sample-data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Sample-data";
+			sourceTree = "<group>";
+		};
 		CDA135F824EBB58E005AD424 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +312,7 @@
 			children = (
 				CDB2CC1A24D61A4E00D0EECE /* App */,
 				CDB2CC3424D61B3900D0EECE /* Extension */,
+				57A45C712C6F9A0B0006B54D /* LuLuTests */,
 				CDB2CC3124D61B3900D0EECE /* Frameworks */,
 				CDB2CC1924D61A4E00D0EECE /* Products */,
 			);
@@ -283,6 +323,7 @@
 			children = (
 				CDB2CC1824D61A4E00D0EECE /* LuLu.app */,
 				CDB2CC3024D61B3900D0EECE /* com.nufuturo.lulu.extension.systemextension */,
+				57A45C702C6F9A0B0006B54D /* LuLuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -420,6 +461,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		57A45C6F2C6F9A0B0006B54D /* LuLuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57A45C782C6F9A0B0006B54D /* Build configuration list for PBXNativeTarget "LuLuTests" */;
+			buildPhases = (
+				57A45C6C2C6F9A0B0006B54D /* Sources */,
+				57A45C6D2C6F9A0B0006B54D /* Frameworks */,
+				57A45C6E2C6F9A0B0006B54D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57A45C752C6F9A0B0006B54D /* PBXTargetDependency */,
+			);
+			name = LuLuTests;
+			productName = LuLuTests;
+			productReference = 57A45C702C6F9A0B0006B54D /* LuLuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CDB2CC1724D61A4E00D0EECE /* LuLu */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDB2CC2924D61A5000D0EECE /* Build configuration list for PBXNativeTarget "LuLu" */;
@@ -466,6 +525,10 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Objective-See";
 				TargetAttributes = {
+					57A45C6F2C6F9A0B0006B54D = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = CDB2CC1724D61A4E00D0EECE;
+					};
 					CDB2CC1724D61A4E00D0EECE = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -489,11 +552,19 @@
 			targets = (
 				CDB2CC1724D61A4E00D0EECE /* LuLu */,
 				CDB2CC2F24D61B3900D0EECE /* Extension */,
+				57A45C6F2C6F9A0B0006B54D /* LuLuTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		57A45C6E2C6F9A0B0006B54D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDB2CC1624D61A4E00D0EECE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -545,6 +616,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		57A45C6C2C6F9A0B0006B54D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57A45C7A2C6FA8720006B54D /* RuleIdTests.m in Sources */,
+				57A45C7C2C6FA8920006B54D /* CortexLogsTests.m in Sources */,
+				57A45C7E2C6FCA900006B54D /* CortexLogsTestsII.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDB2CC1424D61A4E00D0EECE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -608,6 +689,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		57A45C752C6F9A0B0006B54D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDB2CC1724D61A4E00D0EECE /* LuLu */;
+			targetProxy = 57A45C742C6F9A0B0006B54D /* PBXContainerItemProxy */;
+		};
 		CDB2CC3D24D61B3900D0EECE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CDB2CC2F24D61B3900D0EECE /* Extension */;
@@ -627,6 +713,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		57A45C762C6F9A0B0006B54D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27XB45N6Y5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nufuturo.lulu.LuLuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LuLu.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LuLu";
+			};
+			name = Debug;
+		};
+		57A45C772C6F9A0B0006B54D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 27XB45N6Y5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nufuturo.lulu.LuLuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LuLu.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LuLu";
+			};
+			name = Release;
+		};
 		CDB2CC2724D61A5000D0EECE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -843,6 +979,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		57A45C782C6F9A0B0006B54D /* Build configuration list for PBXNativeTarget "LuLuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57A45C762C6F9A0B0006B54D /* Debug */,
+				57A45C772C6F9A0B0006B54D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CDB2CC1324D61A4E00D0EECE /* Build configuration list for PBXProject "LuLu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
