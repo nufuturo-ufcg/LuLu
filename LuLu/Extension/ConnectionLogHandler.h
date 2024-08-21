@@ -28,7 +28,7 @@
 
 @property(nonatomic, retain)NEFilterSocketFlow* socketFlow;
 
-@property(nonatomic, assign)long direction;
+//@property(nonatomic, assign)long direction;
 
 @property(nonatomic, assign)int action;
 

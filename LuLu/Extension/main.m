@@ -10,6 +10,7 @@
 // % log stream --level debug --predicate="subsystem='com.objective-see.lulu'"
 
 #import "main.h"
+#import "ConnectionLogHandler.h"
 
 @import OSLog;
 @import Foundation;
@@ -20,6 +21,9 @@
 //log handle
 os_log_t logHandle = nil;
 
+//logger
+ConnectionLogHandler* logger = nil;
+
 //main
 int main(int argc, char *argv[])
 {
@@ -28,6 +32,8 @@ int main(int argc, char *argv[])
     
     //init log
     logHandle = os_log_create(BUNDLE_ID, "extension");
+        
+    logger = [[ConnectionLogHandler alloc] init];
     
     //dbg msg
     os_log_debug(logHandle, "started: %{public}@ (pid: %d / uid: %d)", NSProcessInfo.processInfo.arguments.firstObject, getpid(), getuid());

@@ -27,6 +27,6 @@
 //related flows
 @property(nonatomic, retain)NSMutableDictionary* relatedFlows;
 
-@property(nonatomic, retain)ConnectionLogHandler* logger;
+@property(nonatomic, retain)NSMutableDictionary* logDict;
 
 @end

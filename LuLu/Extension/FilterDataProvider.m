@@ -17,6 +17,7 @@
 #import "XPCUserProto.h"
 #import "FilterDataProvider.h"
 #import "ConnectionLogHandler.h"
+#import "LogHandler.h"
 
 /* GLOBALS */
 
@@ -35,13 +36,13 @@ extern Preferences* preferences;
 //block list
 extern BlockList* blockList;
 
-//extern ConnectionLogHandler* logger;
+extern ConnectionLogHandler* logger;
 
 @implementation FilterDataProvider
 
 @synthesize cache;
 @synthesize grayList;
-@synthesize logger;
+@synthesize logDict;
 
 //init
 -(id)init
@@ -62,7 +63,9 @@ extern BlockList* blockList;
         //alloc related flows
         self.relatedFlows = [NSMutableDictionary dictionary];
         
-        self.logger = [[ConnectionLogHandler alloc] init];
+        //self.logger = [[ConnectionLogHandler alloc] init];
+        
+        self.logDict = [[NSMutableDictionary alloc] init];
         
     }
     
@@ -214,11 +217,12 @@ extern BlockList* blockList;
     
     verdict.shouldReport = YES;
     
+    os_log_info(logHandle, "logando o connection handler");
+    [logger append:logDict];
+    [logger commitLog:LOG_INFO];
+
     //log msg
     os_log_info(logHandle, "FLOW_ID=%{public}@ verdict: %{public}@", flowUUID, verdict);
-    
-    os_log_info(logHandle, "logando o connection handler");
-    [logger commitLog:LOG_INFO];
     
 bail:
         
@@ -679,14 +683,20 @@ bail:
     
 bail:
     
-    
     //;} //pool
+    [logDict setValue:flowUUID forKey:@"flowUUID"];
+    [logDict setValue:((NWHostEndpoint*)((NEFilterSocketFlow*)flow).remoteEndpoint) forKey:@"remoteEndpoint"];
+    [logDict setValue:socketFlow forKey:@"socketFlow"];
     
     return verdict;
 }
 
 -(void)handleReport:(NEFilterReport *)report
 {
+    NEFilterAction action = report.action;
+    NSNumber* actionNumber = @(action);
+    
+    [logDict setValue:actionNumber forKey:@"action"];
 }
 
 //1. create and deliver alert

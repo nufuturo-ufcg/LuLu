@@ -16,7 +16,6 @@ extern os_log_t logHandle;
 @implementation ConnectionLogHandler
 
 /* Connection log category properties */
-NSString* flowUUID = nil;
 
 - (id)init {
     self = [super init];
@@ -24,7 +23,7 @@ NSString* flowUUID = nil;
     self.flowUUID = [[NSString alloc] init];
     self.remoteEndpoint = [[NWHostEndpoint alloc] init];
     self.socketFlow = [[NEFilterSocketFlow alloc] init];
-    self.direction = -1;
+//    self.direction = -1;
     self.action = 0;
     
     return self;
@@ -39,7 +38,14 @@ NSString* flowUUID = nil;
 }
 
 - (void)logInfo {
-    os_log_info(logHandle, "CATEGORY=connection, FLOW_ID=%{public}@, ENDPOINT=%{public}@, DIRECTION=%ld, PROTOCOL=%ld, ACTION=%d", self.flowUUID, self.remoteEndpoint, self.direction, (long)self.socketFlow.direction, self.action);
+    os_log_info(logHandle, "CATEGORY=connection, FLOW_ID=%{public}@, ENDPOINT=%{public}@, DIRECTION=%ld, PROTOCOL=%ld, ACTION=%d", self.flowUUID, self.remoteEndpoint, self.socketFlow.direction, (long)self.socketFlow.socketProtocol, (int)self.action);
+}
+
+- (void)append:(NSMutableDictionary*)dict {
+    self.flowUUID = [dict[@"flowUUID"] stringValue];
+    self.remoteEndpoint = dict[@"remoteEndpoint"];
+    self.socketFlow = dict[@"socketFlow"];
+    self.action = [dict[@"action"] intValue];
 }
 
 - (void)commitLog:(LogLevel)level {

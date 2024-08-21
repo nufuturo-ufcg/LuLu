@@ -28,6 +28,8 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
 
 -(void)logError;
 
+-(void)append:(NSMutableDictionary*)dict;
+
 -(void)commitLog:(LogLevel)level;
     
 @end
