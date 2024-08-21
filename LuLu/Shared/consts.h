@@ -308,7 +308,6 @@ enum Signer{None, Apple, AppStore, DevID, AdHoc};
 
 #define VALUE_ANY @"*"
 
-
 //keys for rule dictionary
 #define RULE_ID @"id"
 #define RULE_PATH @"path"

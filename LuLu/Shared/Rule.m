@@ -137,14 +137,6 @@ extern os_log_t logHandle;
 }
 
 -(NSString*)generateID {
-    // Replace VALUE_ANY with 'any'
-    if ([self.endpointAddr isEqualToString:VALUE_ANY]) {
-        self.endpointAddr = @"any";
-    }
-    if ([self.endpointPort isEqualToString:VALUE_ANY]) {
-        self.endpointPort = @"any";
-    }
-    
     NSString *ruleID = [NSString stringWithFormat:@"%@-%@-%@-%@-%@",
                         self.csInfo[KEY_CS_ID],
                         self.endpointAddr,
