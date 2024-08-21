@@ -306,8 +306,7 @@ enum Signer{None, Apple, AppStore, DevID, AdHoc};
 
 #define KEY_USER_ID @"userID"
 
-#define VALUE_ANY @"any"
-
+#define VALUE_ANY @"*"
 
 //keys for rule dictionary
 #define RULE_ID @"id"

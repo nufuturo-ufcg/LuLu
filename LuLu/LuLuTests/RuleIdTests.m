@@ -29,7 +29,7 @@
     
     NSString *generatedID = [rule generateID];
     
-    NSString *expectedID = @"com.apple.stocks-any-any-3-1";
+    NSString *expectedID = @"com.apple.stocks-*-*-3-1";
     
     XCTAssertEqualObjects(generatedID, expectedID);
 }
@@ -47,7 +47,7 @@
     
     NSString *generatedID = [rule generateID];
     
-    NSString *expectedID = @"com.apple.Chess-any-any-3-0";
+    NSString *expectedID = @"com.apple.Chess-*-*-3-0";
     
     XCTAssertEqualObjects(generatedID, expectedID);
 }
@@ -65,7 +65,7 @@
     
     NSString *generatedID = [rule generateID];
     
-    NSString *expectedID = @"com.apple.geod-any-any-1-1";
+    NSString *expectedID = @"com.apple.geod-*-*-1-1";
     
     XCTAssertEqualObjects(generatedID, expectedID);
 }
@@ -83,7 +83,7 @@
     
     NSString *generatedID = [rule generateID];
     
-    NSString *expectedID = @"com.apple.Safari-open.spotify.com-any-1-1";
+    NSString *expectedID = @"com.apple.Safari-open.spotify.com-*-1-1";
     
     XCTAssertEqualObjects(generatedID, expectedID);
 }
