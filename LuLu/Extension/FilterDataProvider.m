@@ -16,6 +16,7 @@
 #import "Preferences.h"
 #import "XPCUserProto.h"
 #import "FilterDataProvider.h"
+#import "LuLuServer.h"
 
 /* GLOBALS */
 
@@ -391,6 +392,14 @@ bail:
     {
         //dbg msg
         os_log_info(logHandle, "FLOW_ID=%{public}@ no (saved) rule found for %d/%{public}@", flowUUID, process.pid, process.binary.name);
+
+        if (LULU_SERVER_MODE) {        
+            LuLuServer* luluServer = [[LuLuServer alloc] init];
+
+            //connect to LuLu Server and log not-matched access there:
+            [luluServer logNewAccessWithFlowUUID:flowUUID processName:process.binary.name];
+        }
+
     }
 
     //no client?
