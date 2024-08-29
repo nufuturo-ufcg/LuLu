@@ -157,14 +157,6 @@ int main(int argc, const char * argv[]) {
             //done
             goto bail;
         }
-        
-        // //invalid args
-        // // just print msg, for cmdline case
-        // else if(NSProcessInfo.processInfo.arguments.count > 1)
-        // {
-        //     //err msg
-        //     printf("\nLULU ERROR: %s are not valid args\n\n", NSProcessInfo.processInfo.arguments.description.UTF8String);
-        // }
     
         //main app interface
         status = NSApplicationMain(argc, argv);
