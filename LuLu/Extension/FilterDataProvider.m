@@ -217,15 +217,16 @@ extern ConnectionLogHandler* logger;
     
     verdict.shouldReport = YES;
     
-    os_log_info(logHandle, "logando o connection handler");
-    [logger append:logDict];
-    [logger commitLog:LOG_INFO];
-
     //log msg
-    os_log_info(logHandle, "FLOW_ID=%{public}@ verdict: %{public}@", flowUUID, verdict);
+//    os_log_info(logHandle, "FLOW_ID=%{public}@ verdict: %{public}@", flowUUID, verdict);
+    
+//    goto bail;
     
 bail:
         
+    [logger append:logDict];
+    [logger commitLog:LOG_INFO];
+
     return verdict;
 }
 
@@ -680,6 +681,8 @@ bail:
     //create/deliver alert
     // note: handles response + next/any related flow
     [self alert:(NEFilterSocketFlow*)flow process:process csChange:csChange];
+    
+//    goto bail;
     
 bail:
     

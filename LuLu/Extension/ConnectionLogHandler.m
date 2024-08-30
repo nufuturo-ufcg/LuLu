@@ -20,9 +20,9 @@ extern os_log_t logHandle;
 - (id)init {
     self = [super init];
     
-    self.flowUUID = [[NSString alloc] init];
-    self.remoteEndpoint = [[NWHostEndpoint alloc] init];
-    self.socketFlow = [[NEFilterSocketFlow alloc] init];
+    self.flowUUID = nil;
+    self.remoteEndpoint = nil;
+    self.socketFlow = nil;
 //    self.direction = -1;
     self.action = 0;
     
@@ -42,7 +42,7 @@ extern os_log_t logHandle;
 }
 
 - (void)append:(NSMutableDictionary*)dict {
-    self.flowUUID = [dict[@"flowUUID"] stringValue];
+    [self setValue:[dict valueForKey:@"flowUUID"] forKey:@"flowUUID"];
     self.remoteEndpoint = dict[@"remoteEndpoint"];
     self.socketFlow = dict[@"socketFlow"];
     self.action = [dict[@"action"] intValue];
