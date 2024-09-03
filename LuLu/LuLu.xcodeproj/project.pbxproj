@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57CB407B2C7E521000744067 /* LuLuServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB40792C7E521000744067 /* LuLuServer.m */; };
+		57CB407D2C86572F00744067 /* RemoteRulesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB407C2C86572F00744067 /* RemoteRulesController.m */; };
 		CD03F8F524F8E68300723BDC /* Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = CD03F8F324F8E68300723BDC /* Binary.m */; };
 		CD03F8F624F8E68300723BDC /* Process.m in Sources */ = {isa = PBXBuildFile; fileRef = CD03F8F424F8E68300723BDC /* Process.m */; };
 		CD21D37A252FE91E001A19A8 /* signing.m in Sources */ = {isa = PBXBuildFile; fileRef = CD21D379252FE91E001A19A8 /* signing.m */; };
@@ -99,8 +99,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		57CB40792C7E521000744067 /* LuLuServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LuLuServer.m; sourceTree = "<group>"; };
-		57CB407A2C7E521000744067 /* LuLuServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuLuServer.h; sourceTree = "<group>"; };
+		57CB407C2C86572F00744067 /* RemoteRulesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteRulesController.m; sourceTree = "<group>"; };
+		57F8A5E42C86583D00CE4C0C /* RemoteRulesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteRulesController.h; sourceTree = "<group>"; };
+		57F8A5E52C8658E300CE4C0C /* procInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = procInfo.h; sourceTree = "<group>"; };
 		CD03F8F324F8E68300723BDC /* Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Binary.m; sourceTree = "<group>"; };
 		CD03F8F424F8E68300723BDC /* Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Process.m; sourceTree = "<group>"; };
 		CD03F8FA24F8E6BD00723BDC /* Binary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Binary.h; sourceTree = "<group>"; };
@@ -381,8 +382,9 @@
 		CDB2CC3424D61B3900D0EECE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				57CB407A2C7E521000744067 /* LuLuServer.h */,
-				57CB40792C7E521000744067 /* LuLuServer.m */,
+				57F8A5E52C8658E300CE4C0C /* procInfo.h */,
+				57F8A5E42C86583D00CE4C0C /* RemoteRulesController.h */,
+				57CB407C2C86572F00744067 /* RemoteRulesController.m */,
 				CDA1365A24EF4E56005AD424 /* Alerts.h */,
 				CDD7853B255609AC001BB0BE /* BlockList.h */,
 				CDD7853C255609AC001BB0BE /* BlockList.m */,
@@ -592,10 +594,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57CB407B2C7E521000744067 /* LuLuServer.m in Sources */,
 				CDA1364624EF4DA1005AD424 /* utilities.m in Sources */,
 				CD21D37A252FE91E001A19A8 /* signing.m in Sources */,
 				CDA1366824EF4E57005AD424 /* XPCListener.m in Sources */,
+				57CB407D2C86572F00744067 /* RemoteRulesController.m in Sources */,
 				CDA1364824EF4DA1005AD424 /* Rule.m in Sources */,
 				CD03F8F624F8E68300723BDC /* Process.m in Sources */,
 				CDA1366424EF4E57005AD424 /* GrayList.m in Sources */,

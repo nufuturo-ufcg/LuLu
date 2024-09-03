@@ -16,7 +16,7 @@
 #import "Preferences.h"
 #import "XPCUserProto.h"
 #import "FilterDataProvider.h"
-#import "LuLuServer.h"
+#import "RemoteRulesController.h"
 
 /* GLOBALS */
 
@@ -394,10 +394,10 @@ bail:
         os_log_info(logHandle, "FLOW_ID=%{public}@ no (saved) rule found for %d/%{public}@", flowUUID, process.pid, process.binary.name);
 
         if (LULU_SERVER_MODE) {        
-            LuLuServer* luluServer = [[LuLuServer alloc] init];
+            RemoteRulesController* remoteRulesController = [[RemoteRulesController alloc] init];
 
             //connect to LuLu Server and log not-matched access there:
-            [luluServer logNewAccessWithFlowUUID:flowUUID processName:process.binary.name];
+            [remoteRulesController logNotMatchedAccessWithFlowUUID:flowUUID processName:process.binary.name];
         }
 
     }

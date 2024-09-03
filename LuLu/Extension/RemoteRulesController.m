@@ -1,8 +1,8 @@
 //
-//  file: LuLuServer.m
+//  file: RemoteRulesController.m
 //  project: LuLu (launch daemon)
 //  description: handles remote calls to LuLu Server
-//
+// 
 //
 
 #import "consts.h"
@@ -12,13 +12,14 @@
 #import "Process.h"
 #import "utilities.h"
 #import "Preferences.h"
-#import "LuLuServer.h"
+#import "RemoteRulesController.h"
 
 //log handle
 extern os_log_t logHandle;
 
-@implementation LuLuServer
+@implementation RemoteRulesController
 
+//
 -(NSDictionary*)getDefaultRules {
     
     //defining the url to make the request
@@ -46,9 +47,7 @@ extern os_log_t logHandle;
     {
         os_log_debug(logHandle, "got response %lu", (long)((NSHTTPURLResponse *)response).statusCode);
         //sanity check(s)
-        if( (nil != data) &&
-            (nil == error) &&
-            (200 == (long)((NSHTTPURLResponse *)response).statusCode))
+        if ([self sanityChecksWithData:data error:error statusCode:(long)((NSHTTPURLResponse *)response).statusCode])
         {
             //serialize response into NSData obj
             // wrap since we are serializing JSON
@@ -84,7 +83,8 @@ extern os_log_t logHandle;
     return result;
 }
 
-- (void) logNewAccessWithFlowUUID:(NSString*)flowUUID processName:(NSString*)processName {
+// prepares data of an access without rule to log on remote server
+- (void) logNotMatchedAccessWithFlowUUID:(NSString*)flowUUID processName:(NSString*)processName {
     os_log_info(logHandle, "Sending message to server: access of uuid: %{public}@, and name: %{public}@", flowUUID, processName);
 
 
@@ -130,20 +130,22 @@ extern os_log_t logHandle;
         return;
     }
     
-    [self postNewAccess:postData];
+    //send data to the server
+    [self postNotMatchedAccess:postData];
     
 }
 
 
-- (void) postNewAccess:(NSData*)postData {
+//connects to remote server and sends the information about the not-matched access
+- (void) postNotMatchedAccess:(NSData*)postData {
     //endpoint url    
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/new-access", LULU_SERVER_URL]];
     
-    //request
-    NSMutableURLRequest *request = nil;
+    // //request
+    // NSMutableURLRequest *request = nil;
 
     //alloc/init request
-    request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
 
     //add POST data
     [request setHTTPBody:postData];
@@ -161,10 +163,8 @@ extern os_log_t logHandle;
         os_log_debug(logHandle, "got response %lu", (long)((NSHTTPURLResponse *)response).statusCode);
         
         //sanity check(s)
-        if( (nil != data) &&
-            (nil == error) &&
-            (200 == (long)((NSHTTPURLResponse *)response).statusCode) )
-        {   
+        if ([self sanityChecksWithData:data error:error statusCode:(long)((NSHTTPURLResponse *)response).statusCode])
+        {
             os_log_info(logHandle, "logged new access sucessfully to LuLu Server");
         }
         //error making request
@@ -175,6 +175,13 @@ extern os_log_t logHandle;
         }      
         
     }] resume];
+}
+
+//verifies if response was received correctly
+- (BOOL) sanityChecksWithData:(NSData*)data error:(NSError*)error statusCode:(long)statusCode {
+    return ((nil != data) &&
+            (nil == error) &&
+            (200 == statusCode));
 }
 
 @end

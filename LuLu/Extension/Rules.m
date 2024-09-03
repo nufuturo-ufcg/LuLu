@@ -14,7 +14,7 @@
 #import "Process.h"
 #import "utilities.h"
 #import "Preferences.h"
-#import "LuLuServer.h"
+#import "RemoteRulesController.h"
 
 //default systems 'allow' rules
 NSString* const DEFAULT_RULES[] =
@@ -322,9 +322,9 @@ bail:
     //connects to LuLu Server if server mode is enabled:
     if (LULU_SERVER_MODE)
     {
-        LuLuServer* luluServer = [[LuLuServer alloc] init];
+        RemoteRulesController* remoteRulesController = [[RemoteRulesController alloc] init];
         //connect to LuLu Server and get the default rules there:
-        NSDictionary* response = [luluServer getDefaultRules];
+        NSDictionary* response = [remoteRulesController getDefaultRules];
     
         os_log_debug(logHandle,"response: %{public}@", response);
 
