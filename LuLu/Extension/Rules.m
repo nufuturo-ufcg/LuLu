@@ -14,6 +14,7 @@
 #import "Process.h"
 #import "utilities.h"
 #import "Preferences.h"
+#import "RemoteRulesController.h"
 
 //default systems 'allow' rules
 NSString* const DEFAULT_RULES[] =
@@ -303,9 +304,6 @@ bail:
     //flag
     BOOL generated = NO;
     
-    //LuLuServer flag - needs to be changed manually
-    BOOL connectToServer = LULU_SERVER_MODE;
-    
     //default binary
     NSString* defaultBinary = nil;
     
@@ -319,15 +317,31 @@ bail:
     SecCSFlags flags = kSecCSDefaultFlags | kSecCSCheckNestedCode | kSecCSDoNotValidateResources | kSecCSCheckAllArchitectures;
     
     //dbg msg
-    os_log_info(logHandle, "generating default rules");
-    
+    os_log_debug(logHandle, "generating default rules");
+
     //connects to LuLu Server if server mode is enabled:
-    if (connectToServer)
+    if (LULU_SERVER_MODE)
     {
+        RemoteRulesController* remoteRulesController = [[RemoteRulesController alloc] init];
         //connect to LuLu Server and get the default rules there:
-        NSDictionary* response = [self getDefaultRules];
+        NSDictionary* response = [remoteRulesController getDefaultRules];
     
-        os_log_info(logHandle,"response: %{public}@", response);
+        os_log_debug(logHandle,"response: %{public}@", response);
+
+        if (response != nil) {
+            
+            for (NSString* key in response) {
+                for (NSDictionary* serverRule in response[key]) {
+                    
+                    Rule* organizationRule = [[Rule alloc] initFromJSON: serverRule];
+                    
+                    if(![self add: organizationRule save:NO]) {
+                       //err msg
+                        os_log_error(logHandle, "ERROR: failed to add rule");
+                    }
+                }
+            }
+        }
     }
     
     //iterate overall default rule paths
@@ -386,79 +400,14 @@ bail:
         goto bail;
     }
 
+    
+
     //happy
     generated = YES;
     
 bail:
     
     return generated;
-}
-
--(NSDictionary*)getDefaultRules {
-    
-    //defining the url to make the request
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", LULU_SERVER_URL]];
-    
-    //blocking the space for the response
-    __block NSDictionary *result = nil;
-
-    //request
-    NSMutableURLRequest *request = nil;
-    
-    //wait semaphore
-    dispatch_semaphore_t semaphore = 0;
-
-    //init wait semaphore
-    semaphore = dispatch_semaphore_create(0);
-    
-    //alloc/init request
-    request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
-    //set method type
-    [request setHTTPMethod:@"GET"];
-
-    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error)
-    {
-        os_log_info(logHandle, "got response %lu", (long)((NSHTTPURLResponse *)response).statusCode);
-        //sanity check(s)
-        if( (nil != data) &&
-            (nil == error) &&
-            (200 == (long)((NSHTTPURLResponse *)response).statusCode))
-        {
-            //serialize response into NSData obj
-            // wrap since we are serializing JSON
-            @try
-            {
-                //serialized
-                result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                
-            }
-            //error converting
-            @catch (NSException *exception)
-            {
-                //err msg
-                os_log_error(logHandle, "ERROR: converting response %{public}@ to JSON threw %{public}@", data, exception);
-            }
-        }
-        //error making request
-        else
-        {
-            //err msg
-            os_log_error(logHandle, "ERROR: failed to get default rules from LuLuServer (%{public}@, %{public}@)", error, response);
-        }
-        
-        //trigger
-        dispatch_semaphore_signal(semaphore);
-        
-    }] resume];
-    
-bail:
-
-    //wait for request to complete
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    
-
-    return result;
 }
 
 //add a rule

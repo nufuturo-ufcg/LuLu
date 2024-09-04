@@ -34,7 +34,7 @@ extern os_log_t logHandle;
         
         //dbg msg
         os_log_debug(logHandle, "creating rule with: %{public}@", info);
-                
+        
         //create UUID
         self.uuid = [[NSUUID UUID] UUIDString];
         
@@ -58,7 +58,7 @@ extern os_log_t logHandle;
         //process scope (set via alert)
         // set endpoint info to all ('*')
         if( (nil != info[KEY_SCOPE]) &&
-            (ACTION_SCOPE_PROCESS == [info[KEY_SCOPE] intValue]) )
+           (ACTION_SCOPE_PROCESS == [info[KEY_SCOPE] intValue]) )
         {
             //dbg msg
             os_log_debug(logHandle, "rule info has 'KEY_SCOPE' set to 'ACTION_SCOPE_PROCESS'");
@@ -108,7 +108,7 @@ extern os_log_t logHandle;
         
         //set proto
         self.protocol = info[KEY_PROTOCOL];
-    
+        
         //set type
         self.type = info[KEY_TYPE];
         
@@ -132,13 +132,11 @@ extern os_log_t logHandle;
         
         os_log_debug(logHandle, "new rule id %{public}@", self.ruleID);
     }
-        
+    
     return self;
 }
 
--(NSString*)generateID
-{
-    
+-(NSString*)generateID {
     NSString *ruleID = [NSString stringWithFormat:@"%@-%@-%@-%@-%@",
                         self.csInfo[KEY_CS_ID],
                         self.endpointAddr,
@@ -147,7 +145,7 @@ extern os_log_t logHandle;
                         self.action];
     return ruleID;
 }
-
+    
 //generate key
 // note: this matches process' generate key algo
 -(NSString*)generateKey
