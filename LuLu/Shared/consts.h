@@ -396,7 +396,7 @@ enum Signer{None, Apple, AppStore, DevID, AdHoc};
 #define MENU_RULES_CLEANUP 5
 
 //LuLu Server URL
-#define LULU_SERVER_URL @"http://localhost:8080/default-user-rules"
+#define LULU_SERVER_URL @"http://localhost:8080"
 
 //LuLu Server Flag
 #define LULU_SERVER_MODE NO
