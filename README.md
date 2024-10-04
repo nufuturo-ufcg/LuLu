@@ -1,62 +1,47 @@
-# LuLu
+# LuLu@NufuturoUFCG
 
-LuLu is the free macOS firewall:
-<p align="center"><img src="https://objective-see.com/images/LL/lulu.png"></p>
+LuLu é uma aplicação de firewall macOS gratuita.
 
-**Documentation:** \
-Full details and usage instructions can be found [here](https://objective-see.com/products/lulu.html). 
+**To Build:** 
 
-**To Build:** \
-LuLu should build cleanly in Xcode (though you will have to remove code signing constraints, or replace with your own Apple developer/kernel code signing certificate).
+Clone o repositório localmente:
 
-**To Install:** \
-Simply run the installer application: `LuLu Installer.app`
+    git clone https://github.com/nufuturo-ufcg/LuLu.git
 
-    brew install --cask lulu
+Importe o projeto no Xcode, e faça um novo build. Siga esse tutorial: `https://docs.google.com/document/d/1-DZV9pKRMM_kchNusm5jgPEu7KCGOqac18vQJQHui84/edit`  
 
-**To Support:** \
-&#x2764;&nbsp; Love this product and want to support it? Please check out my [patreon page](https://www.patreon.com/objective_see) :)
+Mova o LuLu.app, disponível no xcode build folder, para o diretório /Applications.
 
-<p align="center">
-<a class="inlineLink" href="https://www.patreon.com/objective_see">
-		<img src="https://objective-see.com/patreon/images/patreon.jpg" width="700" style="display:block; margin:auto;"/>
-</a>
-</p>    
+**To run LuLu headless:** 
 
-**Mahalo!** \
-LuLu is supported by the "Friends of Objective-See" such as:
-\
-\
-<a href="https://www.jamf.com/?utm_source=objective-see&utm_medium=sponsored-link&utm_campaign=next-gen-security&utm_content=2021-02-05_protect">
-  <img src="https://objective-see.com/images/friends/jamf.png" height="50px" />
-</a>
-\
-...the standard in Apple enterprise management.
+Simplismente rode o comando:
+(Caso necessário conceder permissões de privacidade e segurança, apenas siga as instruções apple)
 
-\
-<a href="http://mosyle.com/">
-  <img src="https://objective-see.com/images/friends/mosyle.png" height="50px" />
-</a>
-\
-...modern Apple MDM & security for enterprise &amp; education.
+    /Applications/LuLu.app/Contents/MacOS/LuLu -headless &
 
-\
-<a href="http://kandji.io/">
-  <img src="https://objective-see.com/images/friends/kandji.png" height="50px" />
-</a>
-\
-...next-generation Apple enterprise management.
+**To test LuLu headless:** 
 
-\
-<a href="https://1password.com/?utm_medium=parnter&utm_source=Objective-See&utm_campaign=gp&utm_content=sponsorship">
-    <img src="https://objective-see.com/images/friends/1Password.png" height="50px" />
-</a>
-\
-...the world’s most-loved password manager.
+Uso: 
 
-\
-<a href="https://macpaw.com/cleanmymac">
-  <img src="https://objective-see.com/images/friends/cleanmymac.png" height="50px" />
-</a>
-\
-...an all-in-one package to awesomize your Mac.
+	python passive_mode_test.py <rule_id> <expected_verdict>
+
+Exemplo: `rules.plist` possui a regra `92058E71-0DD9-....` para `bloquear` todas as conexões de saída para a applicação `curl`:
+	
+	python passive_mode_test.py curl google.com 92058E71-0DD9-4EB4-AAAF-93A5D82FB098 BLOCK
+
+Exemplo: `rules.plist` possui a regra `EDAB7BD0-D3BD-....` para `permitir` todas as conexões de saída para a applicação `curl`:
+	
+	python passive_mode_test.py curl google.com EDAB7BD0-D3BD-419B-9E92-BC88B8918A75 ALLOW
+
+Exemplo: `Não possui regra` para a applicação `curl`:
+	
+	python passive_mode_test.py curl google.com PASSIVE_MODE ALLOW
+
+O seu teste deve apresentar um resultado semelhante ao do vídeo:
+
+https://github.com/user-attachments/assets/6b0facc5-9a4d-46f8-95bc-bf48c9375071
+
+ 
+
+
+
