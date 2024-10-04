@@ -18,12 +18,14 @@
 
 //log handle
 extern os_log_t logHandle;
+extern BOOL headlessMode;
 
 //alert windows
 NSMutableDictionary* alerts = nil;
 
 //xpc for daemon comms
 XPCDaemonClient* xpcDaemonClient = nil;
+
 
 @interface AppDelegate ()
 
@@ -108,12 +110,15 @@ XPCDaemonClient* xpcDaemonClient = nil;
     {
         //dbg msg
         os_log_debug(logHandle, "first launch, will kick off welcome window(s)");
+
         
-        //alloc window controller
-        welcomeWindowController = [[WelcomeWindowController alloc] initWithWindowNibName:@"Welcome"];
-        
-        //show window
-        [self.welcomeWindowController showWindow:self];
+        if (YES != headlessMode) { 
+            //alloc window controller
+            welcomeWindowController = [[WelcomeWindowController alloc] initWithWindowNibName:@"Welcome"];
+            
+            //show window
+            [self.welcomeWindowController showWindow:self];
+        }
         
         //set activation policy
         [self setActivationPolicy];
@@ -143,11 +148,15 @@ XPCDaemonClient* xpcDaemonClient = nil;
             //dbg msg
             os_log_debug(logHandle, "showing startup window...");
             
-            //alloc/init
-            startupWindowController = [[StartupWindowController alloc] initWithWindowNibName:@"StartupWindowController"];
             
-            //show window
-            [self.startupWindowController showWindow:nil];
+
+            if (YES != headlessMode) {
+                //alloc/init
+                startupWindowController = [[StartupWindowController alloc] initWithWindowNibName:@"StartupWindowController"];
+                
+                //show window
+                [self.startupWindowController showWindow:nil];
+            }
            
         }
         
@@ -362,19 +371,23 @@ bail:
 {
     //dbg msg
     os_log_debug(logHandle, "method '%s' invoked", __PRETTY_FUNCTION__);
+
     
-    //alloc rules window controller
-    if(nil == self.rulesWindowController)
-    {
-        //alloc
-        rulesWindowController = [[RulesWindowController alloc] initWithWindowNibName:@"Rules"];
+
+    if (YES != headlessMode) {
+        //alloc rules window controller
+        if(nil == self.rulesWindowController)
+        {
+            //alloc
+            rulesWindowController = [[RulesWindowController alloc] initWithWindowNibName:@"Rules"];
+        }
+        
+        //configure (UI)
+        [self.rulesWindowController configure];
+        
+        //make active
+        [self makeActive:self.rulesWindowController];
     }
-    
-    //configure (UI)
-    [self.rulesWindowController configure];
-    
-    //make active
-    [self makeActive:self.rulesWindowController];
     
     return;
 }
@@ -385,16 +398,20 @@ bail:
 {
     //dbg msg
     os_log_debug(logHandle, "method '%s' invoked", __PRETTY_FUNCTION__);
+
     
-    //alloc prefs window controller
-    if(nil == self.prefsWindowController)
-    {
-        //alloc
-        prefsWindowController = [[PrefsWindowController alloc] initWithWindowNibName:@"Preferences"];
+
+    if (YES != headlessMode) {
+        //alloc prefs window controller
+        if(nil == self.prefsWindowController)
+        {
+            //alloc
+            prefsWindowController = [[PrefsWindowController alloc] initWithWindowNibName:@"Preferences"];
+        }
+        
+        //make active
+        [self makeActive:self.prefsWindowController];
     }
-    
-    //make active
-    [self makeActive:self.prefsWindowController];
     
     return;
 }
@@ -405,20 +422,23 @@ bail:
 {
     //dbg msg
     os_log_debug(logHandle, "method '%s' invoked", __PRETTY_FUNCTION__);
-    
-    //alloc/init settings window
-    if(nil == self.aboutWindowController)
-    {
-        //alloc/init
-        aboutWindowController = [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindow"];
-    }
-    
-    //center window
-    [self.aboutWindowController.window center];
-    
-    //show window
-    [self.aboutWindowController showWindow:self];
 
+    
+    
+    if (YES != headlessMode) {
+        //alloc/init settings window
+        if(nil == self.aboutWindowController)
+        {
+            //alloc/init
+            aboutWindowController = [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindow"];
+        }
+        
+        //center window
+        [self.aboutWindowController.window center];
+        
+        //show window
+        [self.aboutWindowController showWindow:self];
+    }
     return;
 }
 
@@ -474,19 +494,22 @@ bail:
 {
     //make foreground
     [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
-    
-    //center
-    [windowController.window center];
 
-    //show it
-    [windowController showWindow:self];
     
-    //make it key window
-    [[windowController window] makeKeyAndOrderFront:self];
     
-    //make window front
-    [NSApp activateIgnoringOtherApps:YES];
-    
+    if (YES != headlessMode) {
+        //center
+        [windowController.window center];
+
+        //show it
+        [windowController showWindow:self];
+        
+        //make it key window
+        [[windowController window] makeKeyAndOrderFront:self];
+        
+        //make window front
+        [NSApp activateIgnoringOtherApps:YES];
+    }    
     return;
 }
 
@@ -691,24 +714,29 @@ bail:
                 //dbg msg
                 os_log_debug(logHandle, "a new version (%@) is available", newVersion);
 
-                //alloc update window
-                self.updateWindowController = [[UpdateWindowController alloc] initWithWindowNibName:@"UpdateWindow"];
                 
-                //configure
-                [self.updateWindowController configure:[NSString stringWithFormat:@"a new version (%@) is available!", newVersion]];
-                
-                //center window
-                [self.updateWindowController.window center];
-                
-                //show it
-                [self.updateWindowController showWindow:self];
+
+                if (YES != headlessMode) {
+                    //alloc update window
+                    self.updateWindowController = [[UpdateWindowController alloc] initWithWindowNibName:@"UpdateWindow"];
+                    
+                    //configure
+                    [self.updateWindowController configure:[NSString stringWithFormat:@"a new version (%@) is available!", newVersion]];
+                    
+                    //center window
+                    [self.updateWindowController.window center];
+                    
+                    //show it
+                    [self.updateWindowController showWindow:self];
+                }
                 
                 //invoke function in background that will make window modal
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     
-                    //make modal
-                    makeModal(self.updateWindowController);
-                    
+                    if (YES != headlessMode) {
+                        //make modal
+                        makeModal(self.updateWindowController);
+                    }                    
                 });
             
                 break;

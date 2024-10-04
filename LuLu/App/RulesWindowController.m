@@ -988,7 +988,7 @@ bail:
     port = (YES == [rule.endpointPort isEqualToString:VALUE_ANY]) ? @"any port" : rule.endpointPort;
     
     //set main text
-    cell.textField.stringValue = [NSString stringWithFormat:@"%@:%@", address, port];
+    cell.textField.stringValue = [NSString stringWithFormat:@"%@:%@:%@", address, port, rule.uuid];
 
     return cell;
 }

@@ -19,6 +19,8 @@
 //log handle
 os_log_t logHandle = nil;
 
+BOOL headlessMode = NO; 
+
 int main(int argc, const char * argv[]) {
     
     //status
@@ -36,6 +38,10 @@ int main(int argc, const char * argv[]) {
         //dbg msg(s)
         os_log_debug(logHandle, "started: %{public}@ (pid: %d / uid: %d)", NSProcessInfo.processInfo.arguments.firstObject, getpid(), getuid());
         os_log_debug(logHandle, "arguments: %{public}@", NSProcessInfo.processInfo.arguments);
+
+        if ([NSProcessInfo.processInfo.arguments containsObject:@"-headless"]) {
+            headlessMode = YES;
+        }
     
         /* cmdline interface - for install/upgrade/uninstall */
         
@@ -150,14 +156,6 @@ int main(int argc, const char * argv[]) {
             
             //done
             goto bail;
-        }
-        
-        //invalid args
-        // just print msg, for cmdline case
-        else if(NSProcessInfo.processInfo.arguments.count > 1)
-        {
-            //err msg
-            printf("\nLULU ERROR: %s are not valid args\n\n", NSProcessInfo.processInfo.arguments.description.UTF8String);
         }
     
         //main app interface
